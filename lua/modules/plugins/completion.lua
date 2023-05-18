@@ -12,8 +12,12 @@ completion["neovim/nvim-lspconfig"] = {
 			"nvimdev/lspsaga.nvim",
 			config = require("completion.lspsaga"),
 		},
+		{ "HallerPatrick/py_lsp.nvim" },
 	},
 }
+-- completion["HallerPatrick/py_lsp.nvim"] = {
+--     lazy=true
+-- }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -56,6 +60,7 @@ completion["hrsh7th/nvim-cmp"] = {
 }
 completion["zbirenbaum/copilot.lua"] = {
 	lazy = true,
+	enabled = true, -- my: tmp disable it
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = require("completion.copilot"),

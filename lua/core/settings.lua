@@ -76,7 +76,8 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"pylsp",
+	-- "pylsp",
+	"pyright",
 	"gopls",
 }
 
@@ -89,6 +90,7 @@ settings["null_ls_deps"] = {
 	"black",
 	"clang_format",
 	"prettier",
+	"autopep8",
 	-- "rustfmt",
 	-- "shfmt",
 	-- "stylua",

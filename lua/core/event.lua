@@ -36,6 +36,27 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end,
 })
+-- MY: open for directories and change nvim's directory
+local nt_newwindow = false
+local function open_nvim_tree_current_window(data)
+	-- buffer is a directory
+	local directory = vim.fn.isdirectory(data.file) == 1
+	if not directory then
+		return
+	end
+
+	if nt_newwindow then
+		-- create a new, empty buffer
+		vim.cmd.enew()
+		-- wipe the directory buffer
+		vim.cmd.bw(data.buf)
+	end
+	-- change to the directory
+	vim.cmd.cd(data.file)
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree_current_window })
 
 -- auto close some filetype with <q>
 vim.api.nvim_create_autocmd("FileType", {

@@ -3,6 +3,9 @@ return function()
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
 
+	-- MY: py_lsp support
+	require("py_lsp").setup({})
+
 	require("lspconfig.ui.windows").default_options.border = "single"
 
 	local icons = {
@@ -37,12 +40,32 @@ return function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+	-- TODO: config not working in casual
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		signs = true,
+		-- signs = {
+		-- 	severity_limit = "Hint",
+		-- },
+		-- virtual_text = require("core.settings").diagnostics_virtual_text,
+		virtual_text = {
+			severity = { min = vim.diagnostic.severity.ERROR },
+		},
+		-- virtual_text = false,
 		underline = true,
-		virtual_text = require("core.settings").diagnostics_virtual_text,
+
 		-- set update_in_insert to false bacause it was enabled by lspsaga
 		update_in_insert = false,
+	})
+
+	-- MY: diagnostics got moved away from lsp scope so upper code doesn't work, config it using native neovim api
+	vim.diagnostic.config({
+		virtual_text = {
+			severity = { min = vim.diagnostic.severity.ERROR },
+		},
+		-- signs = true,
+		-- signs = {
+		-- 	severity = { min = vim.diagnostic.severity.WARN },
+		-- },
 	})
 
 	local opts = {
@@ -69,6 +92,7 @@ return function()
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)
+			print("lsp-server:", lsp_name, " has set up via mason by default options") -- MY
 			return
 		elseif type(custom_handler) == "function" then
 			--- Case where language server requires its own setup

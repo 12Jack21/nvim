@@ -28,6 +28,13 @@ return function()
 				"markdown",
 			},
 		}),
+
+		-- MY: null-ls's buildin pylint (not working)
+		-- btns.diagnostics.pylint.with({
+		-- 	diagnostics_postprocess = function(diagnostic)
+		-- 		diagnostic.code = diagnostic.message_id
+		-- 	end,
+		-- }),
 	}
 	null_ls.setup({
 		border = "rounded",

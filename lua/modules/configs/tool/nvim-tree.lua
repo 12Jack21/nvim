@@ -9,9 +9,9 @@ return function()
 	require("nvim-tree").setup({
 		auto_reload_on_write = true,
 		create_in_closed_folder = false,
-		disable_netrw = false,
+		disable_netrw = true, -- false by default (cannot open folder)
 		hijack_cursor = true,
-		hijack_netrw = true,
+		-- hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
 		open_on_tab = false,
 		respect_buf_cwd = false,
@@ -96,7 +96,7 @@ return function()
 			},
 		},
 		hijack_directories = {
-			enable = true,
+			enable = false, -- true by default
 			auto_open = true,
 		},
 		update_focused_file = {

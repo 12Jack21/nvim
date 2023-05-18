@@ -49,6 +49,7 @@ function Lazy:load_plugins()
 		local modules = require(m:sub(0, #m - 4))
 		if type(modules) == "table" then
 			for name, conf in pairs(modules) do
+				-- print("module name ", name, "has added.") -- MY: plugin load here
 				self.modules[#self.modules + 1] = vim.tbl_extend("force", { name }, conf)
 			end
 		end
