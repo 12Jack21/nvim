@@ -12,7 +12,10 @@ completion["neovim/nvim-lspconfig"] = {
 			"nvimdev/lspsaga.nvim",
 			config = require("completion.lspsaga"),
 		},
-		{ "HallerPatrick/py_lsp.nvim" },
+		-- stubs for popular python library
+		{ "microsoft/python-type-stubs", cond = false },
+
+		-- { "HallerPatrick/py_lsp.nvim" },
 	},
 }
 -- completion["HallerPatrick/py_lsp.nvim"] = {
@@ -20,10 +23,11 @@ completion["neovim/nvim-lspconfig"] = {
 -- }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
 	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
+	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" }, -- MY: add more events
 	config = require("completion.null-ls"),
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"williamboman/mason.nvim", -- MY: more dep
 		"jay-babu/mason-null-ls.nvim",
 	},
 }

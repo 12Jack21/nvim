@@ -67,6 +67,29 @@ local plug_map = {
 		:with_silent()
 		:with_desc("git: Toggle lazygit"),
 
+	-- Plugin: floaterm
+	["n|<leader>ft"] = map_cmd("<Cmd>FloatermToggle<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("floaterm: Toggle float term"),
+	["t|<leader>ft"] = map_cmd("<C-\\><C-n><Cmd>FloatermToggle<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("floaterm: Toggle float term"), --MY TODO
+	["t|<F8>"] = map_cmd("<C-\\><C-n><Cmd>FloatermNew<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("floaterm: New float term"),
+	["t|<F10>"] = map_cmd("<C-\\><C-n><Cmd>FloatermNext<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("floaterm: Go to next float term"),
+	["t|<F9>"] = map_cmd("<C-\\><C-n><Cmd>FloatermPrev<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("floaterm: Go to previous float term"),
+	-- tnoremap  <silent> <F12>  <C-\><C-n>:FloatermNext<CR>
+
 	-- Plugin: trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")

@@ -62,7 +62,7 @@ settings["formatter_block_list"] = {
 settings["server_formatting_block_list"] = {
 	lua_ls = true,
 	tsserver = true,
-	clangd = true,
+	clangd = true, -- MY: server format ?  use clang-format instead
 	pylsp = true,
 }
 
@@ -87,13 +87,13 @@ settings["lsp_deps"] = {
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
-	"black",
+	"black", -- python formatter
 	"clang_format",
 	"prettier",
-	"autopep8",
+	"flake8", -- python linter
 	-- "rustfmt",
-	-- "shfmt",
-	-- "stylua",
+	"shfmt",
+	"stylua",
 	-- "vint",
 }
 

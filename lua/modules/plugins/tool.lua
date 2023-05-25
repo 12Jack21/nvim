@@ -47,6 +47,17 @@ tool["akinsho/toggleterm.nvim"] = {
 	},
 	config = require("tool.toggleterm"),
 }
+-- support multiple terminals
+tool["voldikss/vim-floaterm"] = {
+	lazy = true,
+	cmd = {
+		"FloatermNew",
+		"FloatermPrev",
+		"FloatermNext",
+		"FloatermToggle",
+	},
+	-- config =
+}
 tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },

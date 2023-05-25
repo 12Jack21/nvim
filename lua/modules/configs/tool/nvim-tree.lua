@@ -101,7 +101,7 @@ return function()
 		},
 		update_focused_file = {
 			enable = true,
-			update_root = true,
+			update_root = false, -- my: true by default
 			ignore_list = {},
 		},
 		filters = {

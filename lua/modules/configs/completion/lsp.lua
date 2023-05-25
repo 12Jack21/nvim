@@ -4,7 +4,7 @@ return function()
 	local mason_lspconfig = require("mason-lspconfig")
 
 	-- MY: py_lsp support
-	require("py_lsp").setup({})
+	-- require("py_lsp").setup({})
 
 	require("lspconfig.ui.windows").default_options.border = "single"
 
@@ -74,9 +74,13 @@ return function()
 				bind = true,
 				use_lspsaga = false,
 				floating_window = true,
-				fix_pos = true,
+				floating_window_above_cur_line = false, -- below line is better
+				fix_pos = false, -- true: will not close automatically when function ends
+				-- floating_window_off_x = 5,
+				floating_window_off_y = -2, -- move upper 2 lines
 				hint_enable = true,
-				hi_parameter = "Search",
+				hi_parameter = "Search", -- use `Search` colorschene to highlight param
+				-- transparency = 90,
 				handler_opts = {
 					border = "rounded",
 				},
@@ -92,7 +96,7 @@ return function()
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)
-			print("lsp-server:", lsp_name, " has set up via mason by default options") -- MY
+			-- print("lsp-server:", lsp_name, " has set up via mason by default options") -- MY
 			return
 		elseif type(custom_handler) == "function" then
 			--- Case where language server requires its own setup
@@ -100,6 +104,7 @@ return function()
 			--- See `clangd.lua` for example.
 			custom_handler(opts)
 		elseif type(custom_handler) == "table" then
+			-- print("lsp-server:", lsp_name, " has set up via mason with custom options") -- MY
 			nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
 		else
 			vim.notify(

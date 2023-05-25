@@ -39,7 +39,7 @@ function M.enable_format_on_save(is_configured)
 		group = "format_on_save",
 		pattern = opts.pattern,
 		callback = function()
-			require("completion.formatting").format({
+			require("completion.formatting").format({ -- MY: format trigger here
 				timeout_ms = opts.timeout,
 				filter = M.format_filter,
 			})
@@ -90,6 +90,7 @@ function M.format_filter(clients)
 		local status_ok, formatting_supported = pcall(function()
 			return client.supports_method("textDocument/formatting") -- MY: real formatting function of null-ls
 		end)
+		-- print("client name is ", client.name, " ok:", status_ok, "  support:", formatting_supported)
 		if status_ok and formatting_supported and client.name == "null-ls" then
 			return "null-ls"
 		elseif not server_formatting_block_list[client.name] and status_ok and formatting_supported then
@@ -152,14 +153,24 @@ function M.format(opts)
 			)
 			return
 		end
+		-- print("client before make formatting param: ", client.name)
 		local params = vim.lsp.util.make_formatting_params(opts.formatting_options)
-		local result, err = client.request_sync("textDocument/formatting", params, timeout_ms, bufnr)
+		-- print("client after make formatting param: ", client.name)
+		local result, err = client.request_sync("textDocument/formatting", params, timeout_ms, bufnr) --MY: do formatting here
+		-- print(client, " formatting result.result:", result.result, "  err: ", err)
 		if result and result.result then
 			vim.lsp.util.apply_text_edits(result.result, bufnr, client.offset_encoding)
 			vim.notify(
 				string.format("[LSP] Format successfully with %s!", client.name),
 				vim.log.levels.INFO,
 				{ title = "LSP Format Success" }
+			)
+		-- MY
+		elseif result == nil or result.result == nil then
+			vim.notify(
+				string.format("[LSP] Format failed with %s (MY)!", client.name),
+				vim.log.levels.ERROR,
+				{ title = "LSP Format failed, no result" }
 			)
 		elseif err then
 			vim.notify(

@@ -39,8 +39,8 @@ return function()
 		float_opts = {
 			border = "rounded",
 			-- like `size`, width and height can be a number or function which is passed the current terminal
-			width = math.floor(vim.o.columns * 0.4),
-			height = math.floor(vim.o.lines * 0.4),
+			width = math.floor(vim.o.columns * 0.6),
+			height = math.floor(vim.o.lines * 0.5),
 			winblend = 3,
 			zindex = 50,
 		},
