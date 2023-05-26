@@ -29,12 +29,20 @@ return function()
 				size = 40,
 				position = "left",
 			},
-			{ elements = { "repl" }, size = 10, position = "bottom" },
+			-- { elements = { "repl" }, size = 10, position = "bottom" }, -- MY: move repl to right
+			{
+				elements = {
+					{ id = "console", size = 0.3 },
+					{ id = "repl", size = 0.7 },
+				},
+				size = 40,
+				position = "right",
+			},
 		},
 		-- Requires Nvim version >= 0.8
 		controls = {
 			enabled = true,
-			-- Display controls in this session
+			-- Display controls in this session (buttons)
 			element = "repl",
 			icons = {
 				pause = icons.dap.Pause,

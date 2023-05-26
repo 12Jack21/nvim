@@ -159,14 +159,14 @@ local plug_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 
-	-- Plugin: dap
-	["n|<F6>"] = map_callback(function()
+	-- Plugin: dap  MY: change to vscode default shortcut
+	["n|<F5>"] = map_callback(function()
 			require("dap").continue()
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Run/Continue"),
-	["n|<F7>"] = map_callback(function()
+	["n|<S-F5>"] = map_callback(function()
 			require("dap").terminate()
 			require("dapui").close()
 		end)
@@ -179,19 +179,19 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Toggle breakpoint"),
-	["n|<F9>"] = map_callback(function()
+	["n|<F11>"] = map_callback(function()
 			require("dap").step_into()
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Step into"),
-	["n|<F10>"] = map_callback(function()
+	["n|<S-F11>"] = map_callback(function()
 			require("dap").step_out()
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Step out"),
-	["n|<F11>"] = map_callback(function()
+	["n|<F10>"] = map_callback(function()
 			require("dap").step_over()
 		end)
 		:with_noremap()
@@ -221,6 +221,24 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Open REPL"),
+	["n|<leader>dt"] = map_callback(function()
+			-- require("dap").repl.open()
+			require("dapui").toggle(2)
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Toggle REPL and console"),
+
+	-- Overseer task manager
+	["n|<leader>ot"] = map_cmd("<Cmd>OverseerToggle<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("task: Toggle overseer task window"),
+
+	["n|<leader>or"] = map_cmd("<Cmd>OverseerRun<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("task: Run overseer task"),
 }
 
 bind.nvim_load_mapping(plug_map)

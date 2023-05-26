@@ -14,6 +14,7 @@ completion["neovim/nvim-lspconfig"] = {
 		},
 		-- stubs for popular python library
 		{ "microsoft/python-type-stubs", cond = false },
+		{ "folke/neodev.nvim", opts = {} },
 
 		-- { "HallerPatrick/py_lsp.nvim" },
 	},

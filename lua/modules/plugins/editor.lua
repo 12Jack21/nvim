@@ -67,6 +67,11 @@ editor["lambdalisue/suda.vim"] = {
 	cmd = { "SudaRead", "SudaWrite" },
 	config = require("editor.suda"),
 }
+editor["kylechui/nvim-surround"] = {
+	version = "*",
+	event = "VeryLazy",
+	config = require("editor.nvim-surround"),
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
@@ -99,6 +104,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"abecodes/tabout.nvim",
 			config = require("editor.tabout"),
 		},
+		{ "anuvyklack/pretty-fold.nvim", config = require("editor.pretty-fold") },
 	},
 }
 

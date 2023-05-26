@@ -9,13 +9,13 @@ return vim.schedule_wrap(function()
 			"bash",
 			"c",
 			"cpp",
-			"css",
+			-- "css",
 			"go",
 			"gomod",
 			"html",
-			"javascript",
+			-- "javascript",
 			"json",
-			"latex",
+			-- "latex",
 			"lua",
 			"make",
 			"markdown",
@@ -30,7 +30,7 @@ return vim.schedule_wrap(function()
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
-				if vim.tbl_contains({ "vim" }, ft) then
+				if vim.tbl_contains({ "vim" }, ft) then -- MY: disable for vimscript (*.vim)
 					return true
 				end
 

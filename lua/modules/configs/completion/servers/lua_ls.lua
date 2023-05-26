@@ -18,6 +18,9 @@ return {
 			telemetry = { enable = false },
 			-- Do not override treesitter lua highlighting with lua_ls's highlighting
 			semantic = { enable = false },
+			completion = {
+				callSnippet = "Replace", -- for neodev.nvim
+			},
 		},
 	},
 }

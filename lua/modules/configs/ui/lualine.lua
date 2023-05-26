@@ -101,6 +101,8 @@ return function()
 		return ""
 	end
 
+	local overseer = require("overseer")
+
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
@@ -110,10 +112,29 @@ return function()
 			section_separators = { left = "", right = "" },
 		},
 		sections = {
+			-- MY: statusline configure here
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
 			lualine_c = { lspsaga_symbols },
 			lualine_x = {
+				-- task manager
+				-- { "overseer" },
+				{
+					"overseer",
+					label = "", -- Prefix for task counts
+					colored = true, -- Color the task icons and counts
+					symbols = {
+						[overseer.STATUS.FAILURE] = "F:",
+						[overseer.STATUS.CANCELED] = "C:",
+						[overseer.STATUS.SUCCESS] = "S:",
+						[overseer.STATUS.RUNNING] = "R:",
+					},
+					unique = false, -- Unique-ify non-running task count by name
+					name = nil, -- List of task names to search for
+					name_not = false, -- When true, invert the name search
+					status = nil, -- List of task statuses to display
+					status_not = false, -- When true, invert the status search
+				},
 				{ escape_status },
 				{
 					"diagnostics",

@@ -167,11 +167,12 @@ function M.format(opts)
 			)
 		-- MY
 		elseif result == nil or result.result == nil then
-			vim.notify(
-				string.format("[LSP] Format failed with %s (MY)!", client.name),
-				vim.log.levels.ERROR,
-				{ title = "LSP Format failed, no result" }
-			)
+			--          print("no formatted result: no need to format, or formater broken")
+			-- vim.notify(
+			-- 	string.format("[LSP] Format failed with %s (MY)!", client.name),
+			-- 	vim.log.levels.ERROR,
+			-- 	{ title = "LSP Format failed, no result" }
+			-- )
 		elseif err then
 			vim.notify(
 				string.format("[LSP][%s] %s", client.name, err),

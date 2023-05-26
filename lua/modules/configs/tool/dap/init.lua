@@ -5,14 +5,22 @@ return function()
 	local dap = require("dap")
 	local dapui = require("dapui")
 
+	local nvim_tree_api = require("nvim-tree.api")
+
+	-- MY: toggle window automatically
 	dap.listeners.after.event_initialized["dapui_config"] = function()
-		dapui.open()
+		nvim_tree_api.tree.close()
+		dapui.close() -- MY: avoid invalid window id Error
+		dapui.open({ reset = true })
 	end
 	dap.listeners.after.event_terminated["dapui_config"] = function()
-		dapui.close()
+		-- MY: close specific windowLayout (except repl)
+		dapui.close(1)
 	end
 	dap.listeners.after.event_exited["dapui_config"] = function()
-		dapui.close()
+		-- MY: do not close repl and console window
+		dapui.close(1)
+		nvim_tree_api.tree.toggle({ focus = false })
 	end
 
 	-- We need to override nvim-dap's default highlight groups, AFTER requiring nvim-dap for catppuccin.

@@ -14,13 +14,13 @@ return function()
 		-- hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
 		open_on_tab = false,
-		respect_buf_cwd = false,
+		respect_buf_cwd = true, -- MY: false by default
 		sort_by = "name",
 		sync_root_with_cwd = true,
 		view = {
 			adaptive_size = false,
 			centralize_selection = false,
-			width = 30,
+			width = 40, -- 30 by default, 40 is the same as dapui
 			side = "left",
 			preserve_window_proportions = false,
 			number = false,
@@ -43,7 +43,7 @@ return function()
 			group_empty = true,
 			highlight_git = false,
 			full_name = false,
-			highlight_opened_files = "none",
+			highlight_opened_files = "none", -- MY: TODO: try add some hl
 			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "CMakeLists.txt" },
 			symlink_destination = true,
 			indent_markers = {
@@ -96,12 +96,13 @@ return function()
 			},
 		},
 		hijack_directories = {
-			enable = false, -- true by default
+			enable = false, -- MY: true by default
 			auto_open = true,
 		},
 		update_focused_file = {
 			enable = true,
-			update_root = false, -- my: true by default
+			update_root = true, -- MY: true by default
+			-- update_cwd = true,
 			ignore_list = {},
 		},
 		filters = {

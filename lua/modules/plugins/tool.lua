@@ -97,6 +97,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		} },
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "nvim-telescope/telescope-dap.nvim" },
 	},
 }
 
@@ -123,6 +124,14 @@ tool["mfussenegger/nvim-dap"] = {
 			config = require("tool.dap.dapui"),
 		},
 	},
+}
+
+-- A task runner and job management plugin
+tool["stevearc/overseer.nvim"] = {
+	lazy = true,
+	cmd = { "OverseerRun", "OverseerToggle" },
+	opts = {},
+	config = require("tool.overseer"),
 }
 
 return tool
