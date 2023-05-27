@@ -86,6 +86,9 @@ local plug_map = {
 	["nv|<leader>c"] = map_cmd("<Cmd>HopChar1<CR>"):with_noremap():with_desc("jump: Goto one char"),
 	["nv|<leader>cc"] = map_cmd("<Cmd>HopChar2<CR>"):with_noremap():with_desc("jump: Goto two chars"),
 	["nv|P"] = map_cmd("<Cmd>HopPattern<CR>"):with_noremap():with_desc("jump: Goto pattern"),
+	["nv|<leader>mc"] = map_cmd("<Cmd>HopChar1MW<CR>")
+		:with_noremap()
+		:with_desc("jump: Goto one char in multiple windows"),
 
 	-- Plugin: treehopper
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),

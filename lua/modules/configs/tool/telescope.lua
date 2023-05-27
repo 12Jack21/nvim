@@ -2,6 +2,27 @@ return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local lga_actions = require("telescope-live-grep-args.actions")
 
+	local previewers = require("telescope.previewers")
+	local Job = require("plenary.job")
+	local new_maker = function(filepath, bufnr, opts)
+		filepath = vim.fn.expand(filepath)
+		Job:new({
+			command = "file",
+			args = { "--mime-type", "-b", filepath },
+			on_exit = function(j)
+				local mime_type = vim.split(j:result()[1], "/")[1]
+				if mime_type == "text" then
+					previewers.buffer_previewer_maker(filepath, bufnr, opts)
+				else
+					-- maybe we want to write something to the buffer here
+					vim.schedule(function()
+						vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
+					end)
+				end
+			end,
+		}):sync()
+	end
+
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
@@ -17,13 +38,29 @@ return function()
 					preview_width = 0.5,
 				},
 			},
-			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			buffer_previewer_maker = new_maker,
+			file_previewer = previewers.vim_buffer_cat.new,
+			-- file_previewer = previewers.cat.new, -- use bat for preview
+			grep_previewer = previewers.vim_buffer_vimgrep.new,
+			qflist_previewer = previewers.vim_buffer_qflist.new,
 			file_sorter = require("telescope.sorters").get_fuzzy_file,
 			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		},
 		pickers = {
+			find_files = {
+				mappings = {
+					-- enter selected file's directory
+					n = {
+						["cd"] = function(prompt_bufnr)
+							local selection = require("telescope.actions.state").get_selected_entry()
+							local dir = vim.fn.fnamemodify(selection.path, ":p:h")
+							require("telescope.actions").close(prompt_bufnr)
+							-- Depending on what you want put `cd`, `lcd`, `tcd`
+							vim.cmd(string.format("silent lcd %s", dir))
+						end,
+					},
+				},
+			},
 			keymaps = {
 				theme = "dropdown",
 			},
@@ -75,5 +112,5 @@ return function()
 	require("telescope").load_extension("undo")
 	require("telescope").load_extension("zoxide")
 
-	require("telescope").load_extension("dap") -- MY: add dap support
+	-- require("telescope").load_extension("dap") -- MY: add dap support (preLaunchTask wrong!)
 end

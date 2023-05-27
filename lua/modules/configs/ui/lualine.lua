@@ -118,9 +118,8 @@ return function()
 			lualine_c = { lspsaga_symbols },
 			lualine_x = {
 				-- task manager
-				-- { "overseer" },
 				{
-					"overseer",
+					"overseer", -- task manager
 					label = "", -- Prefix for task counts
 					colored = true, -- Color the task icons and counts
 					symbols = {

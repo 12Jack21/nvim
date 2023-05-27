@@ -61,6 +61,7 @@ completion["hrsh7th/nvim-cmp"] = {
 		-- 	},
 		-- 	config = require("completion.codeium"),
 		-- },
+		{ "rcarriga/cmp-dap" },
 	},
 }
 completion["zbirenbaum/copilot.lua"] = {

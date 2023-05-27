@@ -3,13 +3,7 @@
         "/Users/johnson/.local/share/nvim/site/lazy/neodev.nvim/types/stable",
         "/usr/local/Cellar/neovim/0.9.0/share/nvim/runtime/lua",
         "/Users/johnson/.local/share/nvim/site/lazy/nvim-dap-ui/lua",
-        "/Users/johnson/.local/share/nvim/site/lazy/neodev.nvim/types/stable",
-        "/usr/local/Cellar/neovim/0.9.0/share/nvim/runtime/lua",
-        "/Users/johnson/.local/share/nvim/site/lazy/nvim-dap-ui/lua",
         "/Users/johnson/.config/nvim/lua",
-        "/Users/johnson/.config/nvim/lua",
-        "${3rd}/luv/library",
-        "${3rd}/luv/library",
         "${3rd}/luv/library"
     ]
 }

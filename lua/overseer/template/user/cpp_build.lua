@@ -25,7 +25,14 @@ return {
 					statuses = { "SUCCESS", "CANCELED" }, --  "FAILURE"
 					timeout = 300, -- 300 seconds by default
 				},
-				"default",
+
+				{ "display_duration", detail_level = 2 },
+				"on_output_summarize",
+				"on_exit_set_status",
+				"on_complete_notify",
+				"on_complete_dispose",
+
+				-- "default",
 			},
 			-- additional environment variables
 			env = {

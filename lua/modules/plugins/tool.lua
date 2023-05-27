@@ -32,7 +32,7 @@ tool["michaelb/sniprun"] = {
 	-- You need to cd to `~/.local/share/nvim/site/lazy/sniprun/` and execute `bash ./install.sh`,
 	-- if you encountered error about no executable sniprun found.
 	build = "bash ./install.sh",
-	cmd = { "SnipRun" },
+	cmd = { "SnipRun", "SnipInfo" },
 	config = require("tool.sniprun"),
 }
 tool["akinsho/toggleterm.nvim"] = {
@@ -58,6 +58,7 @@ tool["voldikss/vim-floaterm"] = {
 	},
 	-- config =
 }
+
 tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
@@ -97,7 +98,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		} },
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
-		{ "nvim-telescope/telescope-dap.nvim" },
+		-- { "nvim-telescope/telescope-dap.nvim" },
 	},
 }
 
@@ -128,10 +129,21 @@ tool["mfussenegger/nvim-dap"] = {
 
 -- A task runner and job management plugin
 tool["stevearc/overseer.nvim"] = {
+	-- enabled = false, -- MY: debug with clever-f find
 	lazy = true,
 	cmd = { "OverseerRun", "OverseerToggle" },
 	opts = {},
 	config = require("tool.overseer"),
+}
+
+-- A code runner like in vscode
+tool["CRAG666/code_runner.nvim"] = {
+	lazy = true,
+	cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
+	config = require("tool.code_runner"),
+	dependencies = {
+		{ "akinsho/toggleterm.nvim", config = require("tool.toggleterm") },
+	},
 }
 
 return tool

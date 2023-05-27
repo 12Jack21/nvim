@@ -239,6 +239,28 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("task: Run overseer task"),
+
+	-- Code Runner
+	["n|<leader>rc"] = map_callback(function()
+			local cr = require("code_runner.commands")
+			local cmds = cr.get_filetype_command()
+			print("term cmd = ", cmds)
+			-- cmds = '1TermExec cmd="' .. cmds .. '" direction=vertical'
+			cmds = '1TermExec cmd="' .. cmds .. '"'
+			vim.cmd(cmds)
+		end)
+		:with_noremap()
+		:with_desc("code runner: Excute File"),
+
+	["n|<leader>rp"] = map_callback(function()
+			local cr = require("code_runner.commands")
+			local cmds = cr.get_project_command()
+			-- cmds = '1TermExec cmd="' .. cmds .. '" direction=vertical'
+			cmds = '1TermExec cmd="' .. cmds .. '"'
+			vim.cmd(cmds)
+		end)
+		:with_noremap()
+		:with_desc("code runner: Excute Project"),
 }
 
 bind.nvim_load_mapping(plug_map)
