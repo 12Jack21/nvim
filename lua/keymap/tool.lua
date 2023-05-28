@@ -68,11 +68,11 @@ local plug_map = {
 		:with_desc("git: Toggle lazygit"),
 
 	-- Plugin: floaterm
-	["n|<leader>ft"] = map_cmd("<Cmd>FloatermToggle<CR>")
+	["n|<F7>"] = map_cmd("<Cmd>FloatermToggle<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("floaterm: Toggle float term"),
-	["t|<leader>ft"] = map_cmd("<C-\\><C-n><Cmd>FloatermToggle<CR>")
+	["t|<F7>"] = map_cmd("<C-\\><C-n><Cmd>FloatermToggle<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("floaterm: Toggle float term"), --MY TODO

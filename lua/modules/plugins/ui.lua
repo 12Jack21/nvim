@@ -54,6 +54,10 @@ ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
 	config = require("ui.nord"),
 }
+ui["marko-cerovac/material.nvim"] = {
+	lazy = true,
+	config = require("ui.material"),
+}
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
 	event = "VeryLazy",

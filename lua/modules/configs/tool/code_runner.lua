@@ -26,6 +26,13 @@ return function()
 				"./$fileNameWithoutExt",
 			},
 			python = "python -u", --TODO: virtual env
+			rust = {
+				"cd $dir &&",
+				"rustc $fileName &&",
+				"$dir/$fileNameWithoutExt",
+			},
+			java = { "cd $dir &&", "javac $fileName &&", "java $fileNameWithoutExt" },
+			go = "go run $filename",
 		},
 	})
 end

@@ -112,6 +112,9 @@ return function()
 					["n"] = {
 						-- your custom normal mode mappings
 					},
+					["t"] = {
+						-- your custom terminal mode mappings
+					},
 				},
 			},
 			media_files = {

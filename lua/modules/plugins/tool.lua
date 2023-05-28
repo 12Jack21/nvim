@@ -75,6 +75,11 @@ tool["gelguy/wilder.nvim"] = {
 	config = require("tool.wilder"),
 	dependencies = { "romgrk/fzy-lua-native" },
 }
+tool["mrjones2014/legendary.nvim"] = {
+	lazy = true,
+	cmd = "Legendary",
+	config = require("tool.legendary"),
+}
 
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --

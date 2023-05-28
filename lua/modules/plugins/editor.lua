@@ -72,6 +72,16 @@ editor["kylechui/nvim-surround"] = {
 	event = "VeryLazy",
 	config = require("editor.nvim-surround"),
 }
+editor["folke/todo-comments.nvim"] = {
+	dependencies = { "nvim-lua/plenary.nvim" },
+	opts = require("editor.todo-comments"), -- keep defaults
+	cmd = {
+		"TodoQuickFix",
+		"TodoLocList",
+		"TodoTrouble",
+		"TodoTelescope",
+	},
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --

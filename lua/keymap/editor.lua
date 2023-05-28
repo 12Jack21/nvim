@@ -72,6 +72,24 @@ local plug_map = {
 		:with_noremap()
 		:with_desc("edit: Toggle comment for block with selection"),
 
+	-- Plugin: todo-comments
+	["n|]t"] = map_callback(function()
+			require("todo-comments").jump_next()
+		end)
+		:with_noremap()
+		:with_desc("edit: Next todo comment"),
+
+	["n|[t"] = map_callback(function()
+			require("todo-comments").jump_next()
+		end)
+		:with_noremap()
+		:with_desc("edit: Previous todo comment"),
+
+	["n|<leader>fo"] = map_cmd("<Cmd>TodoTelescope<CR>")
+		:with_silent()
+		:with_noremap()
+		:with_desc("edit: Toggle todo-comments"),
+
 	-- Plugin: diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
