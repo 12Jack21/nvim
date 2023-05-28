@@ -4,6 +4,7 @@ return vim.schedule_wrap(function()
 	vim.api.nvim_set_option_value("foldmethod", "expr", {})
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
+	require("nvim-dap-repl-highlights").setup()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
@@ -26,6 +27,7 @@ return vim.schedule_wrap(function()
 			"vimdoc",
 			-- "vue",
 			"yaml",
+			"dap_repl", -- for dap repl highlight
 		},
 		highlight = {
 			enable = true,

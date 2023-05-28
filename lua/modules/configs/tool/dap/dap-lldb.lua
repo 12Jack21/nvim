@@ -47,6 +47,8 @@ dap.configurations.cpp = {
 		-- preLaunchTask = "clang++17 build",
 		preLaunchTask = "clang++17 build",
 		postDebugTask = nil,
+
+		-- console = "integratedTerminal",
 	},
 	{
 		name = "Launch an executable",

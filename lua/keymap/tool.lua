@@ -123,6 +123,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Show undo history"),
+
 	["n|<leader>fp"] = map_callback(function()
 			require("telescope").extensions.projects.projects({})
 		end)
@@ -158,6 +159,11 @@ local plug_map = {
 		:with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
+	["n|<leader>fd"] = map_cu("Telescope file_browser")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: open file browser"),
+	["n|<leader>fm"] = map_cu("Telescope media_files"):with_noremap():with_silent():with_desc("find: open media files"),
 
 	-- Plugin: dap  MY: change to vscode default shortcut
 	["n|<F5>"] = map_callback(function()
@@ -228,6 +234,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Toggle REPL and console"),
+	["n|<leader>da"] = map_callback(function()
+			require("dapui").toggle()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Toggle all widgets"),
 
 	-- Overseer task manager
 	["n|<leader>ot"] = map_cmd("<Cmd>OverseerToggle<CR>")
@@ -235,6 +247,13 @@ local plug_map = {
 		:with_silent()
 		:with_desc("task: Toggle overseer task window"),
 
+	["n|<leader>ow"] = map_callback(function()
+			vim.cmd("OverseerToggle")
+			vim.opt_local.wrap = true
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("task: Toggle overseer task window with wrap"),
 	["n|<leader>or"] = map_cmd("<Cmd>OverseerRun<CR>")
 		:with_noremap()
 		:with_silent()

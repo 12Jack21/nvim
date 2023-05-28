@@ -98,6 +98,10 @@ tool["nvim-telescope/telescope.nvim"] = {
 		} },
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "nvim-telescope/telescope-file-browser.nvim" },
+		{ "nvim-telescope/telescope-media-files.nvim", dependencies = {
+			{ "nvim-lua/popup.nvim" },
+		} },
 		-- { "nvim-telescope/telescope-dap.nvim" },
 	},
 }

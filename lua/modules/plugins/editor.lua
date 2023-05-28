@@ -105,6 +105,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			config = require("editor.tabout"),
 		},
 		{ "anuvyklack/pretty-fold.nvim", config = require("editor.pretty-fold") },
+		{ "LiadOz/nvim-dap-repl-highlights" },
 	},
 }
 

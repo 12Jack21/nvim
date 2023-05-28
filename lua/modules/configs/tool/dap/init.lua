@@ -16,11 +16,12 @@ return function()
 	dap.listeners.after.event_terminated["dapui_config"] = function()
 		-- MY: close specific windowLayout (except repl)
 		dapui.close(1)
+		nvim_tree_api.tree.open({ focus = false })
 	end
 	dap.listeners.after.event_exited["dapui_config"] = function()
 		-- MY: do not close repl and console window
 		dapui.close(1)
-		nvim_tree_api.tree.toggle({ focus = false })
+		nvim_tree_api.tree.open({ focus = false }) -- not work on go debug
 	end
 
 	-- add support for dap hover evaluation
@@ -40,7 +41,6 @@ return function()
 		-- MY TODO: make the window can quit with q instead of <Cmd>q
 		api.nvim_set_keymap("n", "K", '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
 	end
-
 	dap.listeners.after["event_terminated"]["me"] = function()
 		for _, keymap in pairs(keymap_restore) do
 			api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
