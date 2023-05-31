@@ -50,13 +50,13 @@ return function()
 	mason_null_ls.setup({
 		ensure_installed = require("core.settings").null_ls_deps,
 		automatic_installation = false, -- MY: false by default
-		automatic_setup = true,
+		automatic_setup = false,
 		handlers = {},
 	})
 
 	null_ls.setup({
 		border = "rounded",
-		debug = false, -- MY: for checking why formater cannot work in null-ls (diagnostics can work)
+		debug = true, -- MY: for checking why formater cannot work in null-ls (diagnostics can work)
 		log_level = "warn",
 		update_in_insert = false,
 		sources = sources,

@@ -22,6 +22,13 @@ completion["neovim/nvim-lspconfig"] = {
 -- completion["HallerPatrick/py_lsp.nvim"] = {
 --     lazy=true
 -- }
+completion["linux-cultist/venv-selector.nvim"] = {
+	lazy = true,
+	dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
+	config = true,
+	event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymappingk
+}
+
 completion["jose-elias-alvarez/null-ls.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" }, -- MY: add more events

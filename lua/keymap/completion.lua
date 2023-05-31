@@ -27,6 +27,8 @@ function mapping.lsp(buf)
 		["n|gh"] = map_cr("Lspsaga lsp_finder"):with_buffer(buf):with_desc("lsp: Show reference"),
 		["n|<leader>ci"] = map_cr("Lspsaga incoming_calls"):with_buffer(buf):with_desc("lsp: Show incoming calls"),
 		["n|<leader>co"] = map_cr("Lspsaga outgoing_calls"):with_buffer(buf):with_desc("lsp: Show outgoing calls"),
+
+		["n|<leader>vs"] = map_cr("VenvSelect"):with_desc("venv: Select virtual environment"),
 	}
 	bind.nvim_load_mapping(map)
 end
