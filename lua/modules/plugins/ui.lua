@@ -60,6 +60,7 @@ ui["folke/paint.nvim"] = {
 }
 ui["dstein64/nvim-scrollview"] = {
 	lazy = true,
+	enabled = false,
 	event = "BufReadPost",
 	config = require("ui.scrollview"),
 }

@@ -107,7 +107,8 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			config = require("editor.autotag"),
 		},
 		{
-			"NvChad/nvim-colorizer.lua",
+			"NvChad/nvim-colorizer.lua", -- MY: make red to be looked like real color
+			enabled = false,
 			config = require("editor.colorizer"),
 		},
 		{

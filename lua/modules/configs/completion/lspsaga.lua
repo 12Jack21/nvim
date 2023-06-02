@@ -28,13 +28,13 @@ return function()
 	require("lspsaga").setup({
 		preview = {
 			lines_above = 1,
-			lines_below = 17,
+			lines_below = 11,
 		},
 		scroll_preview = {
 			scroll_down = "<C-j>",
 			scroll_up = "<C-k>",
 		},
-		request_timeout = 3000,
+		request_timeout = 2000, -- 3000 by default
 		finder = {
 			keys = {
 				jump_to = "e",
@@ -69,10 +69,10 @@ return function()
 		},
 		diagnostic = {
 			text_hl_follow = true,
-			on_insert = true,
+			on_insert = true, -- true by default
 			on_insert_follow = false,
 			show_code_action = true,
-			show_source = true,
+			show_source = false, -- true by default
 			border_follow = true,
 			extend_relatedInformation = false,
 			jump_num_shortcut = true,
@@ -91,6 +91,7 @@ return function()
 			in_select = true,
 		},
 		hover = {
+			max_width = 0.6,
 			open_link = "gl",
 			open_browser = "silent !" .. require("core.settings").external_browser,
 		},

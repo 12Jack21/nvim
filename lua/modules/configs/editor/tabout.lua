@@ -7,9 +7,9 @@ return function()
 		enable_backwards = true,
 		completion = true, -- if the tabkey is used in a completion pum
 		tabouts = {
-			{ open = "'", close = "'" },
+			-- { open = "'", close = "'" },
 			{ open = '"', close = '"' },
-			{ open = "`", close = "`" },
+			-- { open = "`", close = "`" },
 			{ open = "(", close = ")" },
 			{ open = "[", close = "]" },
 			{ open = "{", close = "}" },

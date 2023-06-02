@@ -68,11 +68,11 @@ local plug_map = {
 		:with_desc("git: Toggle lazygit"),
 
 	-- Plugin: floaterm
-	["n|<F7>"] = map_cmd("<Cmd>FloatermToggle<CR>")
+	["n|<F6>"] = map_cmd("<Cmd>FloatermToggle<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("floaterm: Toggle float term"),
-	["t|<F7>"] = map_cmd("<C-\\><C-n><Cmd>FloatermToggle<CR>")
+	["t|<F6>"] = map_cmd("<C-\\><C-n><Cmd>FloatermToggle<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("floaterm: Toggle float term"), --MY TODO
@@ -91,7 +91,7 @@ local plug_map = {
 	-- tnoremap  <silent> <F12>  <C-\><C-n>:FloatermNext<CR>
 
 	-- Plugin: trouble
-	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
+	["n|<leader>tt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
 		:with_noremap()
 		:with_silent()

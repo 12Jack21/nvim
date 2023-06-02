@@ -7,7 +7,7 @@ return function()
 
 			[">"] = { escape = true, close = false, pair = "<>" },
 			[")"] = { escape = true, close = false, pair = "()" },
-			["]"] = { escape = true, close = false, pair = "[]" },
+			["]"] = { escape = true, close = false, pair = "[]" }, -- false by default
 			["}"] = { escape = true, close = false, pair = "{}" },
 
 			['"'] = { escape = true, close = true, pair = '""' },

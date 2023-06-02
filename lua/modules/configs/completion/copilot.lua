@@ -2,7 +2,7 @@ return function()
 	vim.defer_fn(function()
 		require("copilot").setup({
 			cmp = {
-				enabled = true,
+				enabled = false, -- true by default
 				method = "getCompletionsCycling",
 			},
 			panel = {

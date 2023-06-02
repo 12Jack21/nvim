@@ -13,7 +13,7 @@ return function()
 		hijack_cursor = true,
 		-- hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
-		open_on_tab = false,
+		open_on_tab = true, -- false by default: open on buffer
 		respect_buf_cwd = true, -- MY: false by default
 		sort_by = "name",
 		sync_root_with_cwd = true,

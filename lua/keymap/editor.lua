@@ -80,7 +80,7 @@ local plug_map = {
 		:with_desc("edit: Next todo comment"),
 
 	["n|[t"] = map_callback(function()
-			require("todo-comments").jump_next()
+			require("todo-comments").jump_prev()
 		end)
 		:with_noremap()
 		:with_desc("edit: Previous todo comment"),
