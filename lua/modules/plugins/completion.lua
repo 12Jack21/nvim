@@ -41,6 +41,7 @@ completion["jose-elias-alvarez/null-ls.nvim"] = {
 }
 completion["hrsh7th/nvim-cmp"] = {
 	lazy = true,
+	-- enabled = false,
 	event = "InsertEnter",
 	config = require("completion.cmp"),
 	dependencies = {

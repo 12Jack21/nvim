@@ -60,16 +60,16 @@ return function()
 			qflist_previewer = previewers.vim_buffer_qflist.new,
 			file_sorter = require("telescope.sorters").get_fuzzy_file,
 			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-			-- vimgrep_arguments = {
-			-- 	"rg",
-			-- 	"--color=auto",
-			-- 	"--no-heading",
-			-- 	"--with-filename",
-			-- 	"--line-number",
-			-- 	"--column",
-			-- 	"--smart-case",
-			-- 	"--trim", -- add this value
-			-- },
+			vimgrep_arguments = {
+				"rg",
+				"--color=auto",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				"--trim", -- add this value
+			},
 		},
 		pickers = {
 			find_files = {

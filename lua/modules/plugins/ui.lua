@@ -66,6 +66,7 @@ ui["dstein64/nvim-scrollview"] = {
 }
 ui["edluffy/specs.nvim"] = {
 	lazy = true,
+	enabled = false, -- MY: will cause telescope always insert mode bug !
 	event = "CursorMoved",
 	config = require("ui.specs"),
 }
