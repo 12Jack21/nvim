@@ -6,6 +6,21 @@ return function()
 	local Job = require("plenary.job")
 	local new_maker = function(filepath, bufnr, opts)
 		filepath = vim.fn.expand(filepath)
+
+		-- ignore files bigger than a threshold
+		-- opts = opts or {}
+		-- vim.loop.fs_stat(filepath, function(_, stat)
+		-- 	if not stat then
+		-- 		return
+		-- 	end
+		-- 	if stat.size > 100000 then
+		-- 		return
+		-- 	else
+		-- 		previewers.buffer_previewer_maker(filepath, bufnr, opts)
+		-- 	end
+		-- end)
+
+		-- diable binary preview
 		Job:new({
 			command = "file",
 			args = { "--mime-type", "-b", filepath },
@@ -38,13 +53,23 @@ return function()
 					preview_width = 0.5,
 				},
 			},
-			buffer_previewer_maker = new_maker,
+			buffer_previewer_maker = new_maker, -- custom maker
 			file_previewer = previewers.vim_buffer_cat.new,
 			-- file_previewer = previewers.cat.new, -- use bat for preview
 			grep_previewer = previewers.vim_buffer_vimgrep.new,
 			qflist_previewer = previewers.vim_buffer_qflist.new,
 			file_sorter = require("telescope.sorters").get_fuzzy_file,
 			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+			-- vimgrep_arguments = {
+			-- 	"rg",
+			-- 	"--color=auto",
+			-- 	"--no-heading",
+			-- 	"--with-filename",
+			-- 	"--line-number",
+			-- 	"--column",
+			-- 	"--smart-case",
+			-- 	"--trim", -- add this value
+			-- },
 		},
 		pickers = {
 			find_files = {
@@ -56,6 +81,7 @@ return function()
 							local dir = vim.fn.fnamemodify(selection.path, ":p:h")
 							require("telescope.actions").close(prompt_bufnr)
 							-- Depending on what you want put `cd`, `lcd`, `tcd`
+							-- MY: cd to new directory (lcd: local cd for current window, tcd: local cd for current tab)
 							vim.cmd(string.format("silent lcd %s", dir))
 						end,
 					},
@@ -64,10 +90,13 @@ return function()
 			keymaps = {
 				theme = "dropdown",
 			},
+			-- buffers = {
+			-- 	initial_mode = "normal",
+			-- },
 		},
 		extensions = {
 			fzf = {
-				fuzzy = false,
+				fuzzy = true, -- false by default
 				override_generic_sorter = true,
 				override_file_sorter = true,
 				case_mode = "smart_case",

@@ -27,7 +27,8 @@ return function()
 			offsets = {
 				{
 					filetype = "NvimTree",
-					text = "File Explorer",
+					-- text = "File Explorer",
+					text = "Explorer",
 					text_align = "center",
 					padding = 1,
 				},

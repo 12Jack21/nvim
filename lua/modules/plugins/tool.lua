@@ -87,6 +87,7 @@ tool["mrjones2014/legendary.nvim"] = {
 tool["nvim-telescope/telescope.nvim"] = {
 	lazy = true,
 	cmd = "Telescope",
+	-- tag = "0.1.1",
 	config = require("tool.telescope"),
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
