@@ -74,7 +74,6 @@
   "python-type-stubs": { "branch": "main", "commit": "d0bf2914b713d6e65f6a490b5a0f662f11315ab5" },
   "smartyank.nvim": { "branch": "master", "commit": "7e3905578f646503525b2f7018b8afd17861018c" },
   "sniprun": { "branch": "master", "commit": "83791b87a8ede5275a2c060605bf1fec782205cc" },
-  "specs.nvim": { "branch": "main", "commit": "2743e412bbe21c9d73954c403d01e8de7377890d" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "suda.vim": { "branch": "master", "commit": "08abd39dfe1cee681b8ce3e7321da5fa03e045c1" },
   "tabout.nvim": { "branch": "master", "commit": "0d275c8d25f32457e67b5c66d6ae43f26a61bce5" },
