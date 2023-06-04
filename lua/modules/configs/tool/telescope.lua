@@ -153,6 +153,9 @@ return function()
 				-- find command (defaults to `fd`)
 				find_cmd = "rg",
 			},
+			conda = {
+				anaconda_path = "~/opt/anaconda3",
+			},
 		},
 	})
 

@@ -18,8 +18,8 @@ function mapping.lsp(buf)
 		["n|gs"] = map_callback(function()
 			vim.lsp.buf.signature_help()
 		end):with_desc("lsp: Signature help"),
-		["n|gr"] = map_cr("Lspsaga rename"):with_buffer(buf):with_desc("lsp: Rename in file range"),
-		["n|gR"] = map_cr("Lspsaga rename ++project"):with_buffer(buf):with_desc("lsp: Rename in project range"),
+		["n|vr"] = map_cr("Lspsaga rename"):with_buffer(buf):with_desc("lsp: Rename in file range"),
+		["n|vR"] = map_cr("Lspsaga rename ++project"):with_buffer(buf):with_desc("lsp: Rename in project range"),
 		["n|K"] = map_cr("Lspsaga hover_doc"):with_buffer(buf):with_desc("lsp: Show doc"),
 		["nv|ga"] = map_cr("Lspsaga code_action"):with_buffer(buf):with_desc("lsp: Code action for cursor"),
 		["n|gd"] = map_cr("Lspsaga peek_definition"):with_buffer(buf):with_desc("lsp: Preview definition"),
@@ -29,6 +29,18 @@ function mapping.lsp(buf)
 		["n|<leader>co"] = map_cr("Lspsaga outgoing_calls"):with_buffer(buf):with_desc("lsp: Show outgoing calls"),
 
 		["n|<leader>vs"] = map_cr("VenvSelect"):with_desc("venv: Select virtual environment"),
+		["n|<leader>fy"] = map_callback(function()
+				require("telescope").extensions.conda.conda({}) -- <Cmd>Telescope conda<CR>
+				print("conda env switch ")
+				vim.defer_fn(function()
+					-- vim.cmd("LspRestart %")
+				end, 3000) -- MY: 3000 is configurable
+				-- vim.cmd("LspRestart %")
+			end)
+			:with_buffer(buf)
+			:with_nowait()
+			:with_noremap()
+			:with_desc("python: switch conda env"),
 	}
 	bind.nvim_load_mapping(map)
 end

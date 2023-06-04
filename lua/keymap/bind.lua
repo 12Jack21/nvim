@@ -157,6 +157,7 @@ function bind.nvim_load_mapping(mapping)
 				local options = value.options
 				local buf = value.buffer
 				if buf and type(buf) == "number" then
+					-- print("buffer keymap: ", buf)
 					vim.api.nvim_buf_set_keymap(buf, mode, keymap, rhs, options)
 				else
 					vim.api.nvim_set_keymap(mode, keymap, rhs, options)

@@ -17,6 +17,10 @@ _G._toggle_lazygit = function()
 	if vim.fn.executable("lazygit") then
 		if not _lazygit then
 			_lazygit = require("toggleterm.terminal").Terminal:new({ -- MY: new a toggleterm
+				-- MY: default size for big viewpoint
+				size = function()
+					return vim.o.columns * 0.8
+				end,
 				cmd = "lazygit",
 				direction = "float",
 				close_on_exit = true,
