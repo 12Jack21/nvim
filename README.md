@@ -1,10 +1,22 @@
-# Neovim config is all your need
+# Neovim config is all you need
 
 > This configuration is based on [nvimdots](https://github.com/ayamir/nvimdots), and make modification for individual demand.
 
+## Installation
+
+- \*nix
+
+```shell
+if command -v curl >/dev/null 2>&1; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/12Jack21/nvim/HEAD/scripts/install.sh)"
+else
+    bash -c "$(wget -O- https://raw.githubusercontent.com/12Jack21/nvim/HEAD/scripts/install.sh)"
+fi
+```
+
 ## Basic
 
-- `<leader>`: " "
+- `<leader>`: " " (\<space\>)
 - `<C-p>` will show the **_command palettes_**, to check the keyboard shortcuts
 
 ## Core operations
@@ -37,7 +49,9 @@
 - use `todo-comments.nvim` for TODO stuff
 - mason stuff will be stored in `~/.local/share/nvim/mason/bin/`
 
-## Issues
+---
+
+### Issues
 
 - [x] remove `<C-u>` animation
 - [x] remove `whichwrap` to disable automatedly jump to next line
@@ -138,6 +152,7 @@ require("nvim-tree").setup({
   - use `lldb-vscode` adapter instead
 - [x] issue: "Do you need to configure your work environment as `luv`"
   - It's a prompt from `neodev.nvim` ,add some lua types for neovim
+  - solution: https://github.com/LunarVim/LunarVim/issues/4049
 - [x] add keymap for repl+console window toggle `<leader>dt`
 - [x] `nvim-dap-ui` cannot handle the situation that user close _repl_ or _console_ window personally (found invalid window id)
   - if `:q` or `:close` one window, you can close another one, and dapui will reset them
@@ -168,13 +183,11 @@ require("nvim-tree").setup({
   - issue [here](https://github.com/neovim/neovim/issues/22924) and [here](https://github.com/akinsho/flutter-tools.nvim/issues/243)
   - change to neovim nightly may fix
 - [x] add `sniprun.nvim`, `overseer.nvim` (A task runner and job management plugin for Neovim), `cmp.nvim` plugin to works like vscode debug and code runner
-
   - [x] cargo may need to clear `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`
     - issue has gone for no reason ......
     - ref: https://blog.csdn.net/qq_37555071/article/details/114260533
     - Inner China cargo: https://github.com/wtklbm/crm
   - `sniprun` has big limitation
-
 - [x] extend `toggleterm` for `code_runner` instead of using weak betterterm.nvim !!!
   - use `2TermExec cmd="git status"`
 - [x] try `asynctasks.nvim` [here](https://github.com/skywind3000/asynctasks.vim) instead of `overseer.nvim`
@@ -200,6 +213,16 @@ require("nvim-tree").setup({
 - [x] recover `gt` to switch tab
   - `gt` function is on, but `bufferline.nvim` do not create new tab for new file opened from nvim-tree
 - [x] get filepath: local filename = vim.fn.expand("%:t") local absolute_filepath = vim.fn.expand("%:p") local relative_filepath = vim.fn.expand("%:.")
+- [x] disable `copilot.nvim` for completion
+- [x] use `ven-selector.nvim` to select virtual python env inside neovim
+  - set search path for the plugin
+  - see what `conda activate ` do: https://nielscautaerts.xyz/make-active-conda-environment-persist-in-neovim-terminal.html
+  - it's just for python _venv_, not conda
+  - use `conda` (https://github.com/IllustratedMan-code/telescope-conda.nvim) instead
+- [x] `telescope-conda.nvim` select conda env, but pyright failed to start in new env
+  - `LspRestart` won't work in keymap setting, but works in command mode: LSP should be restarted on a specific buffer number
+  - add `vim.cmd("LspRestart")` to `conda/main.lua:114` of plugin source code
+- [x] In lazygit window (make it bigger in toggleterm)
 
 - [ ] Make a **_summary_** of all the useful tools you use !!!
 - [ ] try `neorg`
@@ -228,10 +251,6 @@ require("nvim-tree").setup({
 - [ ] add more keymap to `legendary.nvim`
 - [ ] add `close-buffer.nvim` plugin
 - [ ] use _dotfiles repo_ instead of just nvim config
-- [ ] use `ven-selector.nvim` to select virtual python env inside neovim
-  - set search path for the plugin
-  - see what `conda activate ` do: https://nielscautaerts.xyz/make-active-conda-environment-persist-in-neovim-terminal.html
-  - use `conda` (https://github.com/IllustratedMan-code/telescope-conda.nvim) instead
 - [ ] lspsaga ref about python `open` will not auto-close (annoying)
   - remove pandas in virtual text
 - [ ] same variable lighter when hover one variable !
@@ -244,6 +263,7 @@ require("nvim-tree").setup({
 - [ ] `bufferline.nvim` config for more useful functions
 - [ ] `bufferline.nvim` underline not taking up whole width of the tab
   - related issues: https://github.com/akinsho/bufferline.nvim/issues/761, https://github.com/akinsho/bufferline.nvim/issues/545
+- [ ] _jk escape_ will make it slow in insert mode, e.g. `lazygit` window
 
 # License
 

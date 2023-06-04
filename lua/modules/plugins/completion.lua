@@ -74,7 +74,7 @@ completion["hrsh7th/nvim-cmp"] = {
 }
 completion["zbirenbaum/copilot.lua"] = {
 	lazy = true,
-	enabled = true, -- my: tmp disable it
+	enabled = false, -- my: tmp disable it
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = require("completion.copilot"),

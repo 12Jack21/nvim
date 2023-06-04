@@ -108,6 +108,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-media-files.nvim", dependencies = {
 			{ "nvim-lua/popup.nvim" },
 		} },
+		{ "IllustratedMan-code/telescope-conda.nvim" },
 		-- { "nvim-telescope/telescope-dap.nvim" },
 	},
 }

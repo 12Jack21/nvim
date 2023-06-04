@@ -92,7 +92,7 @@ local plug_map = {
 
 	-- Plugin: trouble
 	["n|<leader>tt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
-	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
+	["n|<leader>gr"] = map_cr("TroubleToggle lsp_references")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show lsp references"),
@@ -249,7 +249,7 @@ local plug_map = {
 
 	["n|<leader>ow"] = map_callback(function()
 			vim.cmd("OverseerToggle")
-			vim.opt_local.wrap = true
+			vim.opt_local.wrap = true -- text wrap
 		end)
 		:with_noremap()
 		:with_silent()
