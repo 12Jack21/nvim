@@ -249,11 +249,7 @@ fi
 info "Fetching in progress..."
 if [[ "${USE_SSH}" -eq "1" ]]; then
 	if check_nvim_version "${REQUIRED_NVIM_VERSION}"; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:ayamir/nvimdots.git" "${DEST_DIR}"
-	elif check_nvim_version "${REQUIRED_NVIM_VERSION_LEGACY}"; then
-		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
-		info "Automatically redirecting you to the latest compatible version..."
-		execute "git" "clone" "-b" "0.8" "${CLONE_ATTR[@]}" "git@github.com:ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:12Jack21/nvim.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION_LEGACY})."
 		abort "$(
@@ -265,11 +261,7 @@ EOABORT
 	fi
 else
 	if check_nvim_version "${REQUIRED_NVIM_VERSION}"; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "https://github.com/ayamir/nvimdots.git" "${DEST_DIR}"
-	elif check_nvim_version "${REQUIRED_NVIM_VERSION_LEGACY}"; then
-		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
-		info "Automatically redirecting you to the latest compatible version..."
-		execute "git" "clone" "-b" "0.8" "${CLONE_ATTR[@]}" "https://github.com/ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "https://github.com/12Jack21/nvim.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION_LEGACY})."
 		abort "$(
@@ -294,6 +286,8 @@ cat <<EOS
 
 Thank you for using this set of configuration!
 - Project Homepage:
+    ${tty_underline}https://github.com/12Jack21/nvim${tty_reset}
+    Based on :
     ${tty_underline}https://github.com/ayamir/nvimdots${tty_reset}
 - Further documentation (including executables you ${tty_bold}must${tty_reset} install for full functionality):
     ${tty_underline}https://github.com/ayamir/nvimdots/wiki/Prerequisites${tty_reset}

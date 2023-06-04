@@ -198,8 +198,8 @@ require("nvim-tree").setup({
 - [x] excalidraw (also has obsidian plugin)
 - [x] add keymap to toggle virtual text severity (show all warning message): warning message is enough
 - [x] recover `gt` to switch tab
-
   - `gt` function is on, but `bufferline.nvim` do not create new tab for new file opened from nvim-tree
+- [x] get filepath: local filename = vim.fn.expand("%:t") local absolute_filepath = vim.fn.expand("%:p") local relative_filepath = vim.fn.expand("%:.")
 
 - [ ] Make a **_summary_** of all the useful tools you use !!!
 - [ ] try `neorg`
@@ -241,6 +241,9 @@ require("nvim-tree").setup({
 - [ ] telescope do not show color for icon when remove `~/.config/nvim` and recover again
 - [ ] add code for easy switch plugin on/off
 - [ ] some profile tips: https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+- [ ] `bufferline.nvim` config for more useful functions
+- [ ] `bufferline.nvim` underline not taking up whole width of the tab
+  - related issues: https://github.com/akinsho/bufferline.nvim/issues/761, https://github.com/akinsho/bufferline.nvim/issues/545
 
 # License
 

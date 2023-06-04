@@ -59,6 +59,10 @@ return function()
 		return icons.ui.RootFolderOpened .. cwd
 	end
 
+	local function get_filepath()
+		return vim.fn.expand("%:.")
+	end
+
 	local mini_sections = {
 		lualine_a = { "filetype" },
 		lualine_b = {},
@@ -145,7 +149,8 @@ return function()
 						hint = icons.diagnostics.Hint_alt,
 					},
 				},
-				{ get_cwd },
+				-- { get_cwd },
+				{ get_filepath },
 			},
 			lualine_y = {
 				{ "filetype", colored = true, icon_only = true },
@@ -163,6 +168,33 @@ return function()
 			},
 			lualine_z = { "progress", "location" },
 		},
+		-- winbar is just another lualine, but locate in top of window instead
+		-- winbar = {
+		-- 	lualine_a = {},
+		-- 	lualine_b = {},
+		-- 	lualine_c = {
+		-- 		{
+		-- 			"filename",
+		-- 			path = 1,
+		-- 		},
+		-- 	},
+		-- 	lualine_x = {},
+		-- 	lualine_y = {},
+		-- 	lualine_z = {},
+		-- },
+		-- inactive_winbar = {
+		-- 	lualine_a = {},
+		-- 	lualine_b = {},
+		-- 	lualine_c = {
+		-- 		{
+		-- 			"filename",
+		-- 			path = 1,
+		-- 		},
+		-- 	},
+		-- 	lualine_x = {},
+		-- 	lualine_y = {},
+		-- 	lualine_z = {},
+		-- },
 		inactive_sections = {
 			lualine_a = {},
 			lualine_b = {},
@@ -171,7 +203,9 @@ return function()
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {},
+		tabline = {
+			-- configure this will overwrite bufferline
+		},
 		extensions = {
 			"quickfix",
 			"nvim-tree",
