@@ -1,4 +1,8 @@
 {
+    "Lua": {
+        "runtime.version": "LuaJIT",
+        "workspace.checkThirdParty": false
+    },
     "workspace.library": [
         "/Users/johnson/.local/share/nvim/site/lazy/neodev.nvim/types/stable",
         "/usr/local/Cellar/neovim/0.9.0/share/nvim/runtime/lua",
