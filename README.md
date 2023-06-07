@@ -4,14 +4,7 @@
 
 ## Installation
 
-
-- Windows
-
-```shell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.ps1'))
-```
-
-- \*nix
+- Linux, MacOS, WSL
 
 ```shell
 if command -v curl >/dev/null 2>&1; then
@@ -162,6 +155,7 @@ require("nvim-tree").setup({
 - [x] issue: "Do you need to configure your work environment as `luv`"
   - It's a prompt from `neodev.nvim` ,add some lua types for neovim
   - solution: https://github.com/LunarVim/LunarVim/issues/4049
+  - add `checkThirdParty = false,` to lua_ls setting
 - [x] add keymap for repl+console window toggle `<leader>dt`
 - [x] `nvim-dap-ui` cannot handle the situation that user close _repl_ or _console_ window personally (found invalid window id)
   - if `:q` or `:close` one window, you can close another one, and dapui will reset them
@@ -240,13 +234,15 @@ require("nvim-tree").setup({
 - [x] add `stickybuf.nvim` for special window that should not show file buffer content
 - [x] tmux integration in iTerm2
   - `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
+- [x] _jk escape_ (`better-escape.nvim`) will make it slow in insert mode, e.g. `lazygit` window, try to disable it while in specific filetype (e.g. terminal)
+	- Solution: disable `jk` map in terminal mode, it has nothing to do with `better-escape` plugin
 
 
 
 - [ ] Make a **_summary_** of all the useful tools you use !!!
 - [ ] try `neorg`
-- [ ] try `nvim-lint`, an asynchronous linter plugin (alternative for `null-ls.nvim`)
 - [ ] GNU info (a great documentation reader)
+- [ ] try `nvim-lint`, an asynchronous linter plugin (alternative for `null-ls.nvim`)
 - [ ] pyright do not resolve numpy member
   - understand the _stubs_, and try this: https://github.com/typeddjango/awesome-python-typing#stub-packages
   - use this： https://github.com/microsoft/pyright/issues/4878#issuecomment-1553156526 to add stubs for popular lib (`stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs"`)
@@ -276,7 +272,6 @@ require("nvim-tree").setup({
 - [ ] some profile tips: https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
 - [ ] `bufferline.nvim` underline not taking up whole width of the tab
   - related issues: https://github.com/akinsho/bufferline.nvim/issues/761, https://github.com/akinsho/bufferline.nvim/issues/545
-- [ ] _jk escape_ (`better-escape.nvim`) will make it slow in insert mode, e.g. `lazygit` window, try to disable it while in specific filetype (e.g. terminal)
 - [ ] close tab that does not active now will cause `bufferline.nvim` and `treesitter.nvim` to throw error
 - [ ] flake8's extra_args not work in null-ls.nvim, only flake8 default args works, cause it spawn two flake8, and use the first one
 
