@@ -108,7 +108,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-media-files.nvim", dependencies = {
 			{ "nvim-lua/popup.nvim" },
 		} },
-		{ "IllustratedMan-code/telescope-conda.nvim" },
+		{ "IllustratedMan-code/telescope-conda.nvim", pin = true },
 		-- { "nvim-telescope/telescope-dap.nvim" },
 	},
 }
@@ -142,6 +142,7 @@ tool["mfussenegger/nvim-dap"] = {
 tool["stevearc/overseer.nvim"] = {
 	-- enabled = false, -- MY: debug with clever-f find
 	lazy = true,
+	pin = false, -- MY: to fix if you modify the source code
 	cmd = { "OverseerRun", "OverseerToggle" },
 	opts = {},
 	config = require("tool.overseer"),

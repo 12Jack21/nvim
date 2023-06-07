@@ -28,4 +28,16 @@ lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
 }
+lang["epwalsh/obsidian.nvim"] = {
+	lazy = true,
+	event = { "BufReadPre /Users/johnson/Documents/OB_Notes/**.md" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"hrsh7th/nvim-cmp",
+		"nvim-telescope/telescope.nvim",
+		"godlygeek/tabular",
+		"preservim/vim-markdown",
+	},
+	config = require("lang.obsidian"),
+}
 return lang

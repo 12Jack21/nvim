@@ -70,5 +70,11 @@ ui["edluffy/specs.nvim"] = {
 	event = "CursorMoved",
 	config = require("ui.specs"),
 }
+ui["stevearc/stickybuf.nvim"] = {
+	lazy = false, -- TODO: optimize
+	enabled = true,
+    opt = {},
+	config = require("ui.stickybuf"),
+}
 
 return ui

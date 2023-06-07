@@ -10,8 +10,8 @@ set -u
 DEST_DIR="${HOME}/.config/nvim"
 BACKUP_DIR="${DEST_DIR}_backup-$(date +%Y%m%dT%H%M%S)"
 CLONE_ATTR=("--progress")
-REQUIRED_NVIM_VERSION=0.9.0
-REQUIRED_NVIM_VERSION_LEGACY=0.8.0
+REQUIRED_NVIM_VERSION=0.10.0
+# REQUIRED_NVIM_VERSION_LEGACY=0.8.0
 USE_SSH=1
 
 abort() {
@@ -204,7 +204,7 @@ fi
 if ! command -v nvim >/dev/null; then
 	abort "$(
 		cat <<EOABORT
-You must install Neovim before installing this Nvim config. See:
+You must install Neovim(it'd better be v0.10.0) before installing this Nvim config. See:
   ${tty_underline}https://github.com/neovim/neovim/wiki/Installing-Neovim${tty_reset}
 EOABORT
 	)"

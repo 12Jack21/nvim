@@ -4,6 +4,13 @@
 
 ## Installation
 
+
+- Windows
+
+```shell
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ayamir/nvimdots/HEAD/scripts/install.ps1'))
+```
+
 - \*nix
 
 ```shell
@@ -48,6 +55,8 @@ fi
 - use`<Cmd>set wrap/nowrap` to wrap/nowrap the current window
 - use `todo-comments.nvim` for TODO stuff
 - mason stuff will be stored in `~/.local/share/nvim/mason/bin/`
+- lazy.nvim use `pin=true` to prevent update for modified plugin
+- `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
 
 ---
 
@@ -205,7 +214,6 @@ require("nvim-tree").setup({
   - do not set keymap with leader key in terminal mode, cause I set toggle Floaterm in terminal mode
 - [x] try `nvim-gdb` or `nvim-lldb` for native lldb command support, not dap command
   - too native to use
-- [x] flake8's extra_args not work in null-ls.nvim, only flake8 default args works, cause it spawn two flake8, and use the first one
 - [x] setup `todo-comments.nvim`: PERF(fully optimised), HACK, TODO, NOTE, FIX, WARNING
 - [x] teledrive for storage: too slow to use, and has single file limitation
 - [x] excalidraw (also has obsidian plugin)
@@ -223,6 +231,17 @@ require("nvim-tree").setup({
   - `LspRestart` won't work in keymap setting, but works in command mode: LSP should be restarted on a specific buffer number
   - add `vim.cmd("LspRestart")` to `conda/main.lua:114` of plugin source code
 - [x] In lazygit window (make it bigger in toggleterm)
+- [x] telescope **insert mode** issue: https://github.com/nvim-telescope/telescope.nvim/issues/1595, ref LunarVim config for telescope (_normal mode_)
+  - plugin `specs.nvim` cause this bug !!!
+- [x] telescope do not show color for icon when remove `~/.config/nvim` and recover again
+	- upgrade to new version
+- [x] `bufferline.nvim` config for more useful functions
+- [x] add obdisian support
+- [x] add `stickybuf.nvim` for special window that should not show file buffer content
+- [x] tmux integration in iTerm2
+  - `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
+
+
 
 - [ ] Make a **_summary_** of all the useful tools you use !!!
 - [ ] try `neorg`
@@ -236,8 +255,6 @@ require("nvim-tree").setup({
   - `workspace/didChangeWatchedFiles` enable, https://github.com/neovim/neovim/issues/23291tps://github.com/neovim/neovim/issues/23291
 - [ ] nnn file manager beautify, start with `nnn -e`
 - [ ] iTerm2 themes backup and add new themes
-- [ ] tmux integration in iTerm2
-  - `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
 - [ ] know and try to use `fugitive.nvim` plugin
   - lazygit is an alternative, but maybe can be collaborator
 - [ ] ranger or nnn (file manager) for neovim, or `telescope-file-browser.nvim` plugin
@@ -255,15 +272,16 @@ require("nvim-tree").setup({
   - remove pandas in virtual text
 - [ ] same variable lighter when hover one variable !
 - [ ] LunarVim recommend plugins: https://www.lunarvim.org/docs/configuration/plugins/example-configurations
-- [ ] telescope **insert mode** issue: https://github.com/nvim-telescope/telescope.nvim/issues/1595, ref LunarVim config for telescope (_normal mode_)
-  - plugin `specs.nvim` cause this bug
-- [ ] telescope do not show color for icon when remove `~/.config/nvim` and recover again
 - [ ] add code for easy switch plugin on/off
 - [ ] some profile tips: https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
-- [ ] `bufferline.nvim` config for more useful functions
 - [ ] `bufferline.nvim` underline not taking up whole width of the tab
   - related issues: https://github.com/akinsho/bufferline.nvim/issues/761, https://github.com/akinsho/bufferline.nvim/issues/545
-- [ ] _jk escape_ will make it slow in insert mode, e.g. `lazygit` window
+- [ ] _jk escape_ (`better-escape.nvim`) will make it slow in insert mode, e.g. `lazygit` window, try to disable it while in specific filetype (e.g. terminal)
+- [ ] close tab that does not active now will cause `bufferline.nvim` and `treesitter.nvim` to throw error
+- [ ] flake8's extra_args not work in null-ls.nvim, only flake8 default args works, cause it spawn two flake8, and use the first one
+
+
+
 
 # License
 
