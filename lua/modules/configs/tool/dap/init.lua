@@ -66,6 +66,12 @@ return function()
 	)
 	vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
+	-- install dap for some langs
+	require("mason").setup()
+	require("mason-nvim-dap").setup({
+		ensure_installed = require("core.settings").dap_deps,
+	})
+
 	-- Config lang adaptors
 	require("tool.dap.dap-lldb")
 	require("tool.dap.dap-debugpy")

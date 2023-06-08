@@ -135,6 +135,8 @@ tool["mfussenegger/nvim-dap"] = {
 			"rcarriga/nvim-dap-ui",
 			config = require("tool.dap.dapui"),
 		},
+		{ "williamboman/mason.nvim" },
+		{ "jay-babu/mason-nvim-dap.nvim" },
 	},
 }
 
