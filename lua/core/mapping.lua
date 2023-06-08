@@ -4,6 +4,11 @@ local map_cu = bind.map_cu
 local map_cmd = bind.map_cmd
 
 local core_map = {
+	-- disable arrow keys
+	["n|<Up>"] = map_cr('echo "don\'t use arrow key"'):with_noremap(),
+	["n|<Down>"] = map_cr('echo "don\'t use arrow key"'):with_noremap(),
+	["n|<Left>"] = map_cr('echo "don\'t use arrow key"'):with_noremap(),
+	["n|<Right>"] = map_cr('echo "don\'t use arrow key"'):with_noremap(),
 	-- Suckless
 	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("edit: Toggle code fold"),
 	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("edit: Save file"),
@@ -40,7 +45,8 @@ local core_map = {
 	["i|<C-q>"] = map_cmd("<Esc>:wq<CR>"):with_desc("edit: Save file and quit"),
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("edit: Left"),
-	["c|<C-f>"] = map_cmd("<Right>"):with_noremap():with_desc("edit: Right"),
+	-- <C-f> is used to toggle cmdline window, <C-m> is used to execute command in cmdline
+	["c|<C-o>"] = map_cmd("<Right>"):with_noremap():with_desc("edit: Right"),
 	["c|<C-a>"] = map_cmd("<Home>"):with_noremap():with_desc("edit: Home"),
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap():with_desc("edit: End"),
 	["c|<C-d>"] = map_cmd("<Del>"):with_noremap():with_desc("edit: Delete"),

@@ -97,4 +97,10 @@ settings["null_ls_deps"] = {
 	-- "vint",
 }
 
+settings["dap_deps"] = {
+	"debugpy",
+	"delve",
+	-- "lldb-vscode", -- not awailable in mason dap
+}
+
 return settings
