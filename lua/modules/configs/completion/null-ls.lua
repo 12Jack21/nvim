@@ -17,22 +17,23 @@ return function()
 		}),
 		btns.formatting.prettier.with({
 			filetypes = {
-				"vue",
-				"typescript",
-				"javascript",
-				"typescriptreact",
-				"javascriptreact",
+				-- "vue",
+				-- "typescript",
+				-- "javascript",
+				-- "typescriptreact",
+				-- "javascriptreact",
 				"yaml",
 				"html",
-				"css",
-				"scss",
+				-- "css",
+                "json",
+				-- "scss",
 				"sh",
 				"markdown",
 			},
 		}),
 
-		btns.formatting.stylua,
-		btns.formatting.shfmt,
+		-- btns.formatting.stylua,
+		-- btns.formatting.shfmt,
 
 		-- MY: diagnostics part
 		btns.diagnostics.flake8.with({ extra_args = { "--max-line-length", "120" } }), -- MY: flake8 config
