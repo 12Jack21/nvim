@@ -50,7 +50,7 @@ local function load_options()
 		list = true,
 		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
 		magic = true,
-		mouse = "a", -- MY: disable mouse
+		mouse = "a", -- MY: to disable mouse
 		mousescroll = "ver:3,hor:6",
 		number = true,
 		previewheight = 12,

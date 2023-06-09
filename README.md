@@ -4,7 +4,7 @@
 
 ## Installation
 
-- Linux, MacOS, WSL
+- Linux, MacOS, Windows WSL
 
 ```shell
 if command -v curl >/dev/null 2>&1; then
@@ -228,35 +228,40 @@ require("nvim-tree").setup({
 - [x] telescope **insert mode** issue: https://github.com/nvim-telescope/telescope.nvim/issues/1595, ref LunarVim config for telescope (_normal mode_)
   - plugin `specs.nvim` cause this bug !!!
 - [x] telescope do not show color for icon when remove `~/.config/nvim` and recover again
-	- upgrade to new version
+  - upgrade to new version
 - [x] `bufferline.nvim` config for more useful functions
 - [x] add obdisian support
 - [x] add `stickybuf.nvim` for special window that should not show file buffer content
 - [x] tmux integration in iTerm2
   - `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
 - [x] _jk escape_ (`better-escape.nvim`) will make it slow in insert mode, e.g. `lazygit` window, try to disable it while in specific filetype (e.g. terminal)
-	- Solution: disable `jk` map in terminal mode, it has nothing to do with `better-escape` plugin
+  - Solution: disable `jk` map in terminal mode, it has nothing to do with `better-escape` plugin
+- [x] flake8's extra_args not work in null-ls.nvim, only flake8 default args works, cause it spawn two flake8, and use the first one
 
+  - IN folder `/Users/johnson/.local/share/nvim/site/lazy/null-ls.nvim/lua/null-ls/`, null-ls.init -> rpc.lua -> client.lua:109 -> client.lua:24 -> sources.lua(is_available) -> diagnostics.lua:171 -> generators.lua:174 -> generator_factory.lua:321
+  - skip source registeration for redundant sources (flake8, black, prettier, clang_format) in `sources.lua: M.register` function
+  - fix `null-ls.nvim` plugin's version (update only if encounter new bugs) in lazy (`pin=true`)
 
-
-- [ ] Make a **_summary_** of all the useful tools you use !!!
+- [ ] Make a **_summary_** of all the useful tools you use
 - [ ] try `neorg`
 - [ ] GNU info (a great documentation reader)
-- [ ] try `nvim-lint`, an asynchronous linter plugin (alternative for `null-ls.nvim`)
+- [ ] try `harpoon` (https://github.com/ThePrimeagen/harpoon) (less keystroke)
+- [ ] nnn file manager beautify, start with `nnn -e`
+- [ ] iTerm2 themes backup and add new themes
+- [ ] try `nvim-lint`, an _asynchronous_ linter plugin (alternative for `null-ls.nvim`)
 - [ ] pyright do not resolve numpy member
   - understand the _stubs_, and try this: https://github.com/typeddjango/awesome-python-typing#stub-packages
   - use this： https://github.com/microsoft/pyright/issues/4878#issuecomment-1553156526 to add stubs for popular lib (`stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs"`)
+  - try `useLibraryCodeForTypes=false` in pyright config
   - Try `jedi-language-server` in lspconfig (https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jedi_language_server): `require'lspconfig'.jedi_language_server.setup{}`
+  - try ***async*** lsp loading ?
 - [ ] neovim freeze
   - `workspace/didChangeWatchedFiles` enable, https://github.com/neovim/neovim/issues/23291tps://github.com/neovim/neovim/issues/23291
-- [ ] nnn file manager beautify, start with `nnn -e`
-- [ ] iTerm2 themes backup and add new themes
 - [ ] know and try to use `fugitive.nvim` plugin
   - lazygit is an alternative, but maybe can be collaborator
 - [ ] ranger or nnn (file manager) for neovim, or `telescope-file-browser.nvim` plugin
 - [ ] Persistent breakpoints with [this](https://github.com/Weissle/persistent-breakpoints.nvim)
 - [ ] `autosession.nvim` sometimes not working (store meta in where?)
-- [ ] try `harpoon` (https://github.com/ThePrimeagen/harpoon) (less keystroke)
 - [ ] extend telescope, like in https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#previewers
 - [ ] issue: [How to resolve 'Invalid window id' error when using Telescope plugin in Neovim?](https://sm-stackoverflow.azurefd.net/questions/76326378/how-to-resolve-invalid-window-id-error-when-using-telescope-plugin-in-neovim) (happen occasionally)
 - [ ] `code_runner.nvim` extend functions
@@ -272,11 +277,7 @@ require("nvim-tree").setup({
 - [ ] some profile tips: https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
 - [ ] `bufferline.nvim` underline not taking up whole width of the tab
   - related issues: https://github.com/akinsho/bufferline.nvim/issues/761, https://github.com/akinsho/bufferline.nvim/issues/545
-- [ ] close tab that does not active now will cause `bufferline.nvim` and `treesitter.nvim` to throw error
-- [ ] flake8's extra_args not work in null-ls.nvim, only flake8 default args works, cause it spawn two flake8, and use the first one
-
-
-
+- [ ] close tab that does not active now will cause `bufferline.nvim` and `treesitter.nvim` to throw warning
 
 # License
 

@@ -31,6 +31,7 @@ completion["linux-cultist/venv-selector.nvim"] = {
 
 completion["jose-elias-alvarez/null-ls.nvim"] = {
 	lazy = true,
+	pin = true, -- MY: update some null-ls source codes
 	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" }, -- MY: add more events
 	config = require("completion.null-ls"),
 	dependencies = {

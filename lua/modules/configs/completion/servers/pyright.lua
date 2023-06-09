@@ -3,7 +3,7 @@ return {
 		analysis = {
 			autoSearchPaths = true,
 			diagnosticMode = "openFilesOnly", -- workspace
-			useLibraryCodeForTypes = true,
+			useLibraryCodeForTypes = false, -- MY: will cause large memory consumption
 			stubPath = vim.fn.stdpath("data") .. "/site/lazy/python-type-stubs",
 		},
 	},
