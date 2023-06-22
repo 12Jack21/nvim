@@ -16,37 +16,41 @@ return function()
 	dap.listeners.after.event_terminated["dapui_config"] = function()
 		-- MY: close specific windowLayout (except repl)
 		dapui.close(1)
-		nvim_tree_api.tree.open({ focus = false })
+		nvim_tree_api.tree.close()
+		nvim_tree_api.tree.toggle({ focus = false })
 	end
 	dap.listeners.after.event_exited["dapui_config"] = function()
 		-- MY: do not close repl and console window
 		dapui.close(1)
-		nvim_tree_api.tree.open({ focus = false }) -- not work on go debug
+		nvim_tree_api.tree.close()
+		nvim_tree_api.tree.toggle({ focus = false }) -- not work on go debug, focus not work in cppp debug
 	end
 
 	-- add support for dap hover evaluation
 	-- Map K to hover while session is active
-	local api = vim.api
-	local keymap_restore = {}
-	dap.listeners.after["event_initialized"]["me"] = function()
-		for _, buf in pairs(api.nvim_list_bufs()) do
-			local keymaps = api.nvim_buf_get_keymap(buf, "n")
-			for _, keymap in pairs(keymaps) do
-				if keymap.lhs == "K" then
-					table.insert(keymap_restore, keymap)
-					api.nvim_buf_del_keymap(buf, "n", "K")
-				end
-			end
-		end
-		-- MY TODO: make the window can quit with q instead of <Cmd>q
-		api.nvim_set_keymap("n", "K", '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
-	end
-	dap.listeners.after["event_terminated"]["me"] = function()
-		for _, keymap in pairs(keymap_restore) do
-			api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
-		end
-		keymap_restore = {}
-	end
+	-- local api = vim.api
+	-- local keymap_restore = {}
+	-- dap.listeners.after["event_initialized"]["me"] = function()
+	-- 	for _, buf in pairs(api.nvim_list_bufs()) do
+	-- 		local keymaps = api.nvim_buf_get_keymap(buf, "n")
+	-- 		for _, keymap in pairs(keymaps) do
+	-- 			if keymap.lhs == "K" then
+	-- 				table.insert(keymap_restore, keymap)
+	-- 				api.nvim_buf_del_keymap(buf, "n", "K")
+	-- 			end
+	-- 		end
+	-- 	end
+	-- 	-- MY TODO: make the window can quit with q instead of <Cmd>q
+	-- 	api.nvim_set_keymap("n", "K", '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = false })
+	-- end
+	-- dap.listeners.after["event_terminated"]["me"] = function()
+	-- 	for _, keymap in pairs(keymap_restore) do
+	-- 		-- print("keymap: ", vim.inspect(keymap))
+	-- 		local kkk = vim.inspect(keymap) -- avoid error
+	-- 		api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
+	-- 	end
+	-- 	keymap_restore = {}
+	-- end
 
 	-- We need to override nvim-dap's default highlight groups, AFTER requiring nvim-dap for catppuccin.
 	vim.api.nvim_set_hl(0, "DapStopped", { fg = colors.green })
