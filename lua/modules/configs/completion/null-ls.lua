@@ -25,7 +25,7 @@ return function()
 				"yaml",
 				"html",
 				-- "css",
-                "json",
+				"json",
 				-- "scss",
 				"sh",
 				"markdown",
@@ -57,7 +57,7 @@ return function()
 
 	null_ls.setup({
 		border = "rounded",
-		debug = true, -- MY: for checking why formater cannot work in null-ls (diagnostics can work)
+		debug = false, -- MY: for checking why formater cannot work in null-ls (diagnostics can work)
 		log_level = "warn",
 		update_in_insert = false,
 		sources = sources,

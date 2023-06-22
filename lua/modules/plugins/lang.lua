@@ -24,6 +24,13 @@ lang["iamcco/markdown-preview.nvim"] = {
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }
+
+-- for only markdown outline
+lang["simrat39/symbols-outline.nvim"] = {
+	lazy = true,
+	ft = "markdown",
+	config = require("lang.symbols-outline"),
+}
 lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",

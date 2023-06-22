@@ -7,6 +7,10 @@ local map_cr = bind.map_cr
 local plug_map = {
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent():with_desc("tool: Preview markdown"),
+	["n|<leader>md"] = map_cr("SymbolsOutline")
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: Toggle markdown outline window"),
 }
 
 bind.nvim_load_mapping(plug_map)
