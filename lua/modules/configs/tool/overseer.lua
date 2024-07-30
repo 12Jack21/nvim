@@ -25,8 +25,6 @@ return function()
 		templates = { "builtin", "user.cpp_build" },
 		-- When true, tries to detect a green color from your colorscheme to use for success highlight
 		auto_detect_success_color = true,
-		-- Patch nvim-dap to support preLaunchTask and postDebugTask
-		dap = true,
 		task_list = {
 			default_detail = 2, -- 1,2,3
 			direction = "right",
