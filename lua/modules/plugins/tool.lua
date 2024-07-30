@@ -29,6 +29,7 @@ tool["ibhagwan/smartyank.nvim"] = {
 }
 tool["michaelb/sniprun"] = {
 	lazy = true,
+	enabled = false,
 	-- You need to cd to `~/.local/share/nvim/site/lazy/sniprun/` and execute `bash ./install.sh`,
 	-- if you encountered error about no executable sniprun found.
 	build = "bash ./install.sh",
@@ -113,38 +114,11 @@ tool["nvim-telescope/telescope.nvim"] = {
 	},
 }
 
-----------------------------------------------------------------------
---                           DAP Plugins                            --
-----------------------------------------------------------------------
-tool["mfussenegger/nvim-dap"] = {
-	lazy = true,
-	cmd = {
-		"DapSetLogLevel",
-		"DapShowLog",
-		"DapContinue",
-		"DapToggleBreakpoint",
-		"DapToggleRepl",
-		"DapStepOver",
-		"DapStepInto",
-		"DapStepOut",
-		"DapTerminate",
-	},
-	config = require("tool.dap"),
-	dependencies = {
-		{
-			"rcarriga/nvim-dap-ui",
-			config = require("tool.dap.dapui"),
-		},
-		{ "williamboman/mason.nvim" },
-		{ "jay-babu/mason-nvim-dap.nvim" },
-	},
-}
-
 -- A task runner and job management plugin
 tool["stevearc/overseer.nvim"] = {
 	-- enabled = false, -- MY: debug with clever-f find
 	lazy = true,
-	pin = false, -- MY: to fix if you modify the source code
+	pin = true, -- MY: to fix if you modify the source code
 	cmd = { "OverseerRun", "OverseerToggle" },
 	opts = {},
 	config = require("tool.overseer"),

@@ -31,19 +31,19 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
 	lazy = true,
+	-- main = "ibl", -- migrate to version 3
+	pin = true, -- revert to version 2 and pinned
 	event = "BufReadPost",
 	config = require("ui.indent-blankline"),
+	-- version = "v2.20.7",
+	tag = "v2.20.7",
 }
 ui["nvim-lualine/lualine.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
-ui["zbirenbaum/neodim"] = {
-	lazy = true,
-	event = "LspAttach",
-	config = require("ui.neodim"),
-}
+
 ui["marko-cerovac/material.nvim"] = {
 	lazy = true,
 	config = require("ui.material"),
@@ -73,7 +73,7 @@ ui["edluffy/specs.nvim"] = {
 ui["stevearc/stickybuf.nvim"] = {
 	lazy = false, -- TODO: optimize
 	enabled = true,
-    opt = {},
+	opt = {},
 	config = require("ui.stickybuf"),
 }
 

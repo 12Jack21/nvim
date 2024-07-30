@@ -22,7 +22,9 @@ return function()
 			cpp = {
 				"cd $dir &&",
 				"clang++ $fileName",
-				"-o $fileNameWithoutExt &&",
+				"-o $fileNameWithoutExt",
+                "-std=c++11", -- with c++11 
+                "&&",
 				"./$fileNameWithoutExt",
 			},
 			python = "python -u", --TODO: virtual env

@@ -17,6 +17,7 @@ editor["m4xshen/autoclose.nvim"] = {
 }
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
+	pin = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.better-escape"),
 }
@@ -116,7 +117,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			config = require("editor.tabout"),
 		},
 		{ "anuvyklack/pretty-fold.nvim", config = require("editor.pretty-fold") },
-		{ "LiadOz/nvim-dap-repl-highlights" },
+		-- { "LiadOz/nvim-dap-repl-highlights" },
 	},
 }
 

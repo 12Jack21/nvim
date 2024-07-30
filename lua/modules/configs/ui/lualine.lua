@@ -209,7 +209,6 @@ return function()
 		extensions = {
 			"quickfix",
 			"nvim-tree",
-			"nvim-dap-ui",
 			"toggleterm",
 			"fugitive",
 			outline,
@@ -219,7 +218,8 @@ return function()
 
 	-- Properly set background color for lspsaga
 	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, colors.mantle)
-	for _, hlGroup in pairs(require("lspsaga.lspkind").get_kind_group()) do
-		require("modules.utils").extend_hl(hlGroup, { bg = winbar_bg })
-	end
+	-- print(vim.inspect(require("lspsaga.lspkind")))
+	-- for _, hlGroup in pairs(require("lspsaga.lspkind").get_kind_group()) do
+	-- 	require("modules.utils").extend_hl(hlGroup, { bg = winbar_bg })
+	-- end
 end

@@ -1,5 +1,6 @@
 local icons = {}
 
+-- TODO: font family Edition
 local data = {
 	kind = {
 		Class = "󰠱",

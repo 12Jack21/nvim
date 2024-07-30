@@ -94,9 +94,9 @@ return function()
 	local function mason_handler(lsp_name)
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 
-		-- neovim doc support for lua
+		-- neovim doc support
 		if lsp_name == "lua_ls" then
-			require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
+			-- require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
 		end
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec

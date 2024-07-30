@@ -70,6 +70,7 @@ function Lazy:load_lazy()
 			-- log = { "-10" }, -- show the last 10 commits
 			timeout = 300,
 			url_format = clone_prefix,
+			filter = true, -- set to false if use low version of git
 		},
 		install = {
 			-- install missing plugins on startup. This doesn't increase startup time.
