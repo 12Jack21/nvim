@@ -4,6 +4,31 @@ tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
+
+tool["sindrets/diffview.nvim"] = {
+	lazy = true,
+	cmd = {
+		"DiffviewOpen",
+		"DiffviewClose",
+		"DiffviewToggleFiles",
+		"DiffviewFocusFiles",
+		"DiffviewRefresh",
+		"DiffviewFileHistory",
+	},
+	-- config = require("tool.diffview"), --  error
+}
+
+-- no need for neovim, just used to switch window
+-- tool["christoomey/vim-tmux-navigator"]({
+-- 	cmd = {
+-- 		"TmuxNavigateLeft",
+-- 		"TmuxNavigateDown",
+-- 		"TmuxNavigateUp",
+-- 		"TmuxNavigateRight",
+-- 		"TmuxNavigatePrevious",
+-- 	},
+-- })
+
 -- only for fcitx5 user who uses non-English language during coding
 -- tool["pysan3/fcitx5.nvim"] = {
 -- 	lazy = true,
