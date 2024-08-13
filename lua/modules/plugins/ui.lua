@@ -15,6 +15,13 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
+
+ui["olimorris/onedarkpro.nvim"] = {
+	lazy = false,
+	priotity = 1000,
+	config = require("ui.onedarkpro"),
+}
+
 ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
