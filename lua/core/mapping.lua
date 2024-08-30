@@ -49,7 +49,8 @@ local core_map = {
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("edit: Left"),
 	-- <C-f> is used to toggle cmdline window, <C-m> is used to execute command in cmdline
-	["c|<C-o>"] = map_cmd("<Right>"):with_noremap():with_desc("edit: Right"),
+	-- ["c|<C-o>"] = map_cmd("<Right>"):with_noremap():with_desc("edit: Right"),
+
 	["c|<C-a>"] = map_cmd("<Home>"):with_noremap():with_desc("edit: Home"),
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap():with_desc("edit: End"),
 	["c|<C-d>"] = map_cmd("<Del>"):with_noremap():with_desc("edit: Delete"),
