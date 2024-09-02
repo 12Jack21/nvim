@@ -48,12 +48,6 @@ return function()
 					text_align = "center",
 					padding = 1,
 				},
-				{
-					filetype = "lspsagaoutline",
-					text = "Lspsaga Outline",
-					text_align = "center",
-					padding = 1,
-				},
 			},
 			-- should turn on 'mousemoveevent', but has unneeded overhead
 			-- hover = {

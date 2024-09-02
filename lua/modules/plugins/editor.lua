@@ -17,7 +17,7 @@ editor["m4xshen/autoclose.nvim"] = {
 }
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
-	pin = true,
+	-- pin = true,  -- TODO: my some little change
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.better-escape"),
 }
@@ -89,11 +89,12 @@ editor["folke/todo-comments.nvim"] = {
 ----------------------------------------------------------------------
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
-	build = function()
-		if #vim.api.nvim_list_uis() ~= 0 then
-			vim.api.nvim_command("TSUpdate")
-		end
-	end,
+	-- build = function()
+	-- 	if #vim.api.nvim_list_uis() ~= 0 then
+	-- 		vim.api.nvim_command("TSUpdate")
+	-- 	end
+	-- end,
+	build = ":TSUpdate",
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {

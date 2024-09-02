@@ -13,7 +13,7 @@ return vim.schedule_wrap(function()
 			"go",
 			"gomod",
 			"html",
-			-- "javascript",
+			"javascript",
 			"json",
 			-- "latex",
 			"lua",
@@ -78,9 +78,9 @@ return vim.schedule_wrap(function()
 		-- context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
 	})
-    require('ts_context_commentstring').setup {
-      enable_autocmd = false,
-    }
+	require("ts_context_commentstring").setup({
+		enable_autocmd = false,
+	})
 	require("nvim-treesitter.install").prefer_git = true -- MY: use git instead of https
 	if use_ssh then
 		local parsers = require("nvim-treesitter.parsers").get_parser_configs()
