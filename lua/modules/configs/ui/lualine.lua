@@ -12,29 +12,6 @@ return function()
 	end
 
 	local _cache = { context = "", bufnr = -1 }
-	local function lspsaga_symbols()
-		local exclude = {
-			["terminal"] = true,
-			["toggleterm"] = true,
-			["prompt"] = true,
-			["NvimTree"] = true,
-			["help"] = true,
-		}
-		if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
-			return "" -- Excluded filetypes
-		else
-			local currbuf = vim.api.nvim_get_current_buf()
-			local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
-			if ok and lspsaga:get_winbar() ~= nil then
-				_cache.context = lspsaga:get_winbar()
-				_cache.bufnr = currbuf
-			elseif _cache.bufnr ~= currbuf then
-				_cache.context = "" -- Reset [invalid] cache (usually from another buffer)
-			end
-
-			return _cache.context
-		end
-	end
 
 	local function diff_source()
 		local gitsigns = vim.b.gitsigns_status_dict
@@ -70,10 +47,6 @@ return function()
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
-	}
-	local outline = {
-		sections = mini_sections,
-		filetypes = { "lspsagaoutline" },
 	}
 	local diffview = {
 		sections = mini_sections,
@@ -119,7 +92,6 @@ return function()
 			-- MY: statusline configure here
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = { lspsaga_symbols },
 			lualine_x = {
 				-- task manager
 				{
@@ -211,15 +183,9 @@ return function()
 			"nvim-tree",
 			"toggleterm",
 			"fugitive",
-			outline,
 			diffview,
 		},
 	})
 
-	-- Properly set background color for lspsaga
 	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, colors.mantle)
-	-- print(vim.inspect(require("lspsaga.lspkind")))
-	-- for _, hlGroup in pairs(require("lspsaga.lspkind").get_kind_group()) do
-	-- 	require("modules.utils").extend_hl(hlGroup, { bg = winbar_bg })
-	-- end
 end

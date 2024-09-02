@@ -8,10 +8,6 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "ray-x/lsp_signature.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{
-			"nvimdev/lspsaga.nvim",
-			config = require("completion.lspsaga"),
-		},
 		-- stubs for popular python library
 		{ "microsoft/python-type-stubs", cond = false },
 		{ "folke/neodev.nvim", opts = {} },
