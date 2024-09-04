@@ -125,9 +125,10 @@ tool["nvim-telescope/telescope.nvim"] = {
 			config = require("tool.project"),
 		},
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
-			{ "kkharji/sqlite.lua" },
-		} },
+		-- TODO: ~/.zshrc get stuck on save&quit
+		-- { "nvim-telescope/telescope-frecency.nvim", dependencies = {
+		-- 	{ "kkharji/sqlite.lua" },
+		-- } },
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },

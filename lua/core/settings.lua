@@ -7,7 +7,7 @@ settings["use_ssh"] = true
 
 -- Set it to false if there are no need to format on save.
 ---@type boolean
-settings["format_on_save"] = true
+settings["format_on_save"] = false
 
 -- Set it to false if diagnostics virtual text is annoying for you
 ---@type boolean

@@ -33,6 +33,7 @@ ui["j-hui/fidget.nvim"] = {
 }
 ui["lewis6991/gitsigns.nvim"] = {
 	lazy = true,
+	enabled = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.gitsigns"),
 }

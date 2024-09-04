@@ -21,7 +21,7 @@ return function()
 		features = { -- features to disable
 			"indent_blankline",
 			"lsp",
-			"illuminate",
+			-- "illuminate",
 			"treesitter",
 			"syntax",
 			"vimopts",
