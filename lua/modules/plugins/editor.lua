@@ -56,6 +56,7 @@ editor["phaazon/hop.nvim"] = {
 }
 editor["RRethy/vim-illuminate"] = {
 	lazy = true,
+	enabled = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
