@@ -5,7 +5,7 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("completion.lsp"),
 	dependencies = {
-		{ "ray-x/lsp_signature.nvim" },
+		-- { "ray-x/lsp_signature.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		-- stubs for popular python library
@@ -57,6 +57,7 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "hrsh7th/cmp-buffer" },
 		{ "kdheepak/cmp-latex-symbols" },
 		{ "ray-x/cmp-treesitter" },
+        { "hrsh7th/cmp-nvim-lsp-signature-help" },  -- Show function signature when on insert mode within function
 		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
 		-- {
 		-- 	"jcdickinson/codeium.nvim",
