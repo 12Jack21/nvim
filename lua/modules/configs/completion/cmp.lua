@@ -144,6 +144,7 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
+            { name = 'nvim_lsp_signature_help' },  --  Show function signature
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },

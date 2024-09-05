@@ -92,30 +92,55 @@ local plug_map = {
 	-- tnoremap  <silent> <F12>  <C-\><C-n>:FloatermNext<CR>
 
 	-- Plugin: trouble
-	["n|<leader>tt"] = map_cr("Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.WARN")
+
+	["n|<leader>tt"] = map_cr("Trouble diagnostics toggle filter.severity={vim.diagnostic.severity.WARN,vim.diagnostic.severity.ERROR}")
 		:with_noremap()
 		:with_silent()
-		:with_desc("Diagnostics (Trouble)"),
-	["n|<leader>gr"] = map_cr("Trouble lsp_references toggle")
+		:with_desc("Trouble: Diagnostics toggle"),
+	["n|gr"] = map_cr("Trouble lsp_references toggle")
 		:with_noremap()
 		:with_silent()
 		:with_desc("Trouble: Show lsp references"),
-	["n|<leader>td"] = map_cr("Trouble lsp toggle focus=false win.position=left")
+	["n|gd"] = map_cr("Trouble lsp toggle focus=true win.position=right")
 		:with_noremap()
 		:with_silent()
-		:with_desc("LSP Definitions / references / ... (Trouble)"),
-	["n|<leader>tw"] = map_cr("Trouble symbols toggle focus=false")
+		:with_desc("Trouble: LSP Definitions / references / ... "),
+	["n|gw"] = map_cr("Trouble symbols toggle focus=false")
 		:with_noremap()
 		:with_silent()
 		:with_desc("Symbols (Trouble)"),
-	["n|<leader>tq"] = map_cr("Trouble loclist toggle")
+	["n|gq"] = map_cr("Trouble loclist toggle")
 		:with_noremap()
 		:with_silent()
-		:with_desc("Location List (Trouble)"),
-	["n|<leader>tl"] = map_cr("Trouble qflist toggle")
+		:with_desc("Trouble: Location List toggle"),
+	["n|gl"] = map_cr("Trouble qflist toggle")
 		:with_noremap()
 		:with_silent()
-		:with_desc("Quickfix List (Trouble)"),
+		:with_desc("Trouble: Quickfix List toggle"),
+	-- ["n|<leader>tt"] = map_cr("Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.WARN")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("Diagnostics (Trouble)"),
+	-- ["n|<leader>gr"] = map_cr("Trouble lsp_references toggle")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("Trouble: Show lsp references"),
+	-- ["n|<leader>td"] = map_cr("Trouble lsp toggle focus=false win.position=right")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("LSP Definitions / references / ... (Trouble)"),
+	-- ["n|<leader>tw"] = map_cr("Trouble symbols toggle focus=false")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("Symbols (Trouble)"),
+	-- ["n|<leader>tq"] = map_cr("Trouble loclist toggle")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("Location List (Trouble)"),
+	-- ["n|<leader>tl"] = map_cr("Trouble qflist toggle")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("Quickfix List (Trouble)"),
 
 	-- Plugin: telescope
 	["n|<C-p>"] = map_callback(function()

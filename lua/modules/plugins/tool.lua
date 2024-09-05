@@ -85,6 +85,7 @@ tool["voldikss/vim-floaterm"] = {
 	-- config =
 }
 
+-- Diagnostic Plugin
 tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },

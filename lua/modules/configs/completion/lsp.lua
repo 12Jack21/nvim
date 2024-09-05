@@ -70,6 +70,7 @@ return function()
 
 	local opts = {
 		on_attach = function()
+            if false then
 			require("lsp_signature").on_attach({
 				bind = true,
 				use_lspsaga = false,
@@ -78,13 +79,18 @@ return function()
 				fix_pos = false, -- true: will not close automatically when function ends
 				-- floating_window_off_x = 5,
 				floating_window_off_y = -2, -- move upper 2 lines
-				hint_enable = true,
+				hint_enable = false, -- TODO:false
+                hint_prefix = "🐼 ",
 				hi_parameter = "Search", -- use `Search` colorschene to highlight param
 				-- transparency = 90,
+                timer_interval = 50, -- 200 default
+                oggle_key = "<M-x>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+                select_signature_key = "<M-n>", -- cycle to next signature, e.g. '<M-n>' function overloading
 				handler_opts = {
 					border = "rounded",
 				},
 			})
+        end
 		end,
 		capabilities = capabilities,
 	}
