@@ -25,17 +25,20 @@ completion["linux-cultist/venv-selector.nvim"] = {
 	event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymappingk
 }
 
-completion["jose-elias-alvarez/null-ls.nvim"] = {
+-- completion["jose-elias-alvarez/null-ls.nvim"] = {
+completion["nvimtools/none-ls.nvim"] = {
 	lazy = true,
-	pin = true, -- MY: update some null-ls source codes
-	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" }, -- MY: add more events
-	config = require("completion.null-ls"),
+	-- pin = true, 
+	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" },
+	config = require("modules.configs.completion.none-ls"),
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"williamboman/mason.nvim", -- MY: more dep
+		"williamboman/mason.nvim",
 		"jay-babu/mason-null-ls.nvim",
+        "nvimtools/none-ls-extras.nvim",
 	},
 }
+
 completion["hrsh7th/nvim-cmp"] = {
 	lazy = true,
 	-- enabled = false,
