@@ -91,6 +91,7 @@ settings["null_ls_deps"] = {
 	"clang_format",
 	"prettier",
 	"flake8", -- python linter
+    "ruff",
 	-- "rustfmt",
 	"shfmt",
 	"stylua",
