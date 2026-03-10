@@ -101,7 +101,9 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-context" },
-		{ "mrjones2014/nvim-ts-rainbow" },
+		-- { "mrjones2014/nvim-ts-rainbow" },
+        { "HiPhish/rainbow-delimiters.nvim" },
+
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" },
