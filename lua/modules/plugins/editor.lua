@@ -40,10 +40,6 @@ editor["numToStr/Comment.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.comment"),
 }
-editor["sindrets/diffview.nvim"] = {
-	lazy = true,
-	cmd = { "DiffviewOpen", "DiffviewClose" },
-}
 editor["junegunn/vim-easy-align"] = {
 	lazy = true,
 	cmd = "EasyAlign",
@@ -75,7 +71,6 @@ editor["kylechui/nvim-surround"] = {
 	config = require("editor.nvim-surround"),
 }
 editor["folke/todo-comments.nvim"] = {
-	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = require("editor.todo-comments"), -- keep defaults
 	cmd = {
 		"TodoQuickFix",
