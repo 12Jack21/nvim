@@ -1,13 +1,30 @@
-# Neovim config is all you need
+# Lightweight Neovim Configuration
 
-> This configuration is based on [nvimdots](https://github.com/ayamir/nvimdots), and make modification for individual demand.
-> Simplified version
+> A streamlined Neovim configuration based on [nvimdots](https://github.com/ayamir/nvimdots)
+>
+> **Version**: `light_v0.1` | **Plugins**: 37 (lightweight, minimal dependencies)
+
+## Features
+
+- 🎨 **Modern UI**: Catppuccin theme, bufferline, statusline, file tree
+- 🚀 **Fast Startup**: Optimized plugin loading with lazy.nvim
+- 💡 **Smart Completion**: LSP + nvim-cmp with multiple sources
+- 📝 **Syntax Highlighting**: Treesitter with context-aware features
+- 🔧 **Essential Tools**: File search (telescope), terminal, git integration
+- ⌨️ **Vim-like Experience**: Surround, comment, hop, and more
 
 ## Installation
 
-- Linux, MacOS, Windows WSL
+### Requirements
 
-```shell
+- Neovim >= 0.10.0
+- Git
+- Bash
+- Python 3 (optional, for some LSP servers)
+
+### Quick Install
+
+```bash
 if command -v curl >/dev/null 2>&1; then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/12Jack21/nvim/HEAD/scripts/install.sh)"
 else
@@ -15,39 +32,167 @@ else
 fi
 ```
 
-## Basic
+## Plugin List
 
-- `<leader>`: " " (\<space\>)
-- `<C-p>` will show the **_command palettes_**, to check the keyboard shortcuts
+### UI (9 plugins)
+- **Theme**: catppuccin, onedarkpro
+- **Status Line**: lualine.nvim
+- **Tab Line**: bufferline.nvim
+- **Icons**: nvim-web-devicons
+- **Notifications**: nvim-notify
+- **Git Signs**: gitsigns.nvim
+- **LSP Progress**: fidget.nvim
+- **Startup**: alpha-nvim
+- **Indent**: indent-blankline.nvim
 
-## Core operations
+### Editor (16 plugins)
+- **Syntax**: nvim-treesitter + 10 extensions
+- **Editing**: Comment.nvim, nvim-surround, autoclose.nvim
+- **Movement**: clever-f.vim, hop.nvim, accelerated-jk.nvim
+- **Navigation**: vim-illuminate, clever-f.vim
+- **Utility**: better-escape.nvim, suda.vim, nvim-bufdel
+- **Folding**: pretty-fold.nvim
+- **Highlighting**: nvim-colorizer.lua, todo-comments.nvim
 
-- statusline show file path
-- code comment with `<leader>gc`
-- `lazy.nvim` disable plugins: neoscroll: animation during cursor movement
-- toggle float term `<A-d>` , horizontal `<A-h>`, vertical `<A-v>` in normal mode
-- nvim-treesitter will _failed_ at the first setup, then succeed when you coding
-- `<A-*>` is unavailable in **_tmux_** environment
-- Theme selection: catppucin-frappe, catppucin-macchiato, edge
-- tab switch use `<M-j><A-k>`, close current usi¬ng `<M-q>`
-- `<C-g>` show the file path
-- `<A-l>` out of some pairs like "", '', {}, `<A-o>` go back
+### Tool (8 plugins)
+- **File Manager**: nvim-tree.lua
+- **Search**: telescope.nvim + fzf-native
+- **Terminal**: toggleterm.nvim
+- **Key Help**: which-key.nvim
+- **Command Palette**: legendary.nvim
+- **Command Line**: wilder.nvim
+- **Diagnostics**: trouble.nvim
+- **Clipboard**: smartyank.nvim
 
-- use `<A-o> <A-p>` to move between **_iTerm2_** panes
-- use `<C-]>` in nvimtree to enter a directory and show it as root folder
-- use `m{letter}` to add bookmark and `'{letter}` or " \`{letter} " to go to that bookmark
-- use `project.nvim` to manage your project directories, it will use the folder where you open nvim as the root directory
-- use `<z-a><z-A>` or `<S-tab>` to fold/unfold current block, see more in `<z-` leadding key-combination
-- `nvim-surround` plugin: `ds[` to delete text inside [], `cs[(` change \[ to \( pair, `ysiw{` add \{ pair to selected word
-- use "\`bt" to run _lldb command_ in dap (use lldb-vscode adapter)
-- use nvim file modifiers [here](https://neovim.io/doc/user/cmdline.html#filename-modifiers)
-- If a keyboard shortcut does not work in neovim, consider the terminal emulator (e.g. iTerm2) do not map specific key to some weird behaviors, like `<S-F5>` key
-- The _location list_ is exactly same as _quickfix_, just that it's private to each window, quickfix is global to neovim.
-- `clever-f.nvim` extend the function of `f/F` and `t/T`, use `f{char}` find a word match, then hit `f` multiple times to find next match
-- use `<leader>dl` to make dap run last debug session again
-- use `<leader><backspace>` to show more shortcuts
-- use`<Cmd>set wrap/nowrap` to wrap/nowrap the current window
-- use `todo-comments.nvim` for TODO stuff
-- mason stuff will be stored in `~/.local/share/nvim/mason/bin/`
-- lazy.nvim use `pin=true` to prevent update for modified plugin
-- `tmux -CC attach -t SESSION_NAME` new window in iTerm2 profile
+### Completion (3 plugins)
+- **LSP Client**: nvim-lspconfig
+- **Completion Engine**: nvim-cmp + 12 sources
+- **Formatting**: none-ls.nvim
+
+### Lang (1 plugin)
+- **Notes**: obsidian.nvim
+
+## Keybindings
+
+### Leader Key
+- `<leader>`: `<Space>`
+
+### Basic Navigation
+- `<C-p>`: Command palette (legendary.nvim)
+- `<leader><space>`: Search files (telescope)
+- `<leader>ff`: Find files
+- `<leader>fg`: Live grep
+- `<leader>fb`: Buffers
+- `<leader>fh`: Search history
+
+### File Operations
+- `<C-g>`: Show file path
+- `<leader>e`: Open file explorer (nvim-tree)
+- `<leader>bd`: Close buffer
+- `<leader>bn`: Next buffer
+- `<leader>bp`: Previous buffer
+
+### Editing
+- `<leader>gc`: Toggle comment
+- `ysiw{`: Surround word with braces
+- `ds[`: Delete surrounding brackets
+- `cs[(`: Change surrounding brackets
+- `<A-l>`: Jump out of pairs
+- `<A-o>`: Jump back into pairs
+
+### Terminal
+- `<A-d>`: Toggle floating terminal
+- `<A-h>`: Toggle horizontal terminal
+- `<A-v>`: Toggle vertical terminal
+
+### Git
+- `<leader>gg`: Open lazygit (if installed)
+- `<leader>gb`: Git blame
+- `<leader>gs`: Git status
+
+### LSP
+- `gd`: Go to definition
+- `gD`: Go to declaration
+- `gr`: Find references
+- `gi`: Go to implementation
+- `<leader>ca`: Code actions
+- `<leader>rn`: Rename symbol
+- `K`: Show hover documentation
+
+## Configuration
+
+### Theme
+Default theme: `catppuccin-frappe`
+
+Available themes:
+- `catppuccin` (default)
+- `catppuccin-frappe` (current)
+- `catppuccin-macchiato`
+- `catppuccin-mocha`
+- `catppuccin-latte`
+- `onedarkpro`
+
+Change theme in `lua/core/settings.lua`:
+```lua
+settings["colorscheme"] = "catppuccin-frappe"
+```
+
+### LSP Servers
+Configured LSP servers (install via Mason):
+- bashls
+- clangd
+- lua_ls
+- pyright
+- gopls
+
+### Formatters & Linters
+Configured via none-ls.nvim:
+- Python: black, flake8, ruff
+- C/C++: clang_format
+- JavaScript/TypeScript: prettier
+- Lua: stylua
+- Shell: shfmt
+
+## Troubleshooting
+
+### First-time Setup
+- Treesitter parsers may fail to install initially
+- Run `:TSUpdate` after first startup
+- Run `:Mason` to ensure LSP servers are installed
+
+### Common Issues
+- **Theme not loading**: Check `lua/core/settings.lua` for colorscheme
+- **LSP not working**: Run `:Mason` to install language servers
+- **Completion not showing**: Ensure LSP server is installed and running
+
+### Plugin Management
+```vim
+:Lazy       " Open lazy.nvim UI
+:Lazy sync  " Update all plugins
+:Lazy clean " Clean unused plugins
+```
+
+## Project Structure
+
+```
+nvim/
+├── lua/
+│   ├── core/           " Core configuration
+│   ├── keymap/         " Keybindings
+│   ├── modules/        " Plugin configurations
+│   └── utils/          " Utility functions
+├── scripts/            " Installation scripts
+└── snips/              " Code snippets
+```
+
+## Contributing
+
+This is a personal configuration tailored for specific needs. Feel free to fork and modify for your own use.
+
+## License
+
+This configuration is based on [nvimdots](https://github.com/ayamir/nvimdots), which is licensed under the MIT License.
+
+---
+
+**Note**: This is version `light_v0.1` - a streamlined configuration focusing on essential features and performance.
