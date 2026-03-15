@@ -34,7 +34,7 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord` etc.
 ---@type string
-settings["colorscheme"] = "onedark" --"catppuccin-frappe" -- or  catppuccin-macchiato
+settings["colorscheme"] = "catppuccin-frappe"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean
@@ -96,12 +96,6 @@ settings["null_ls_deps"] = {
 	"shfmt",
 	"stylua",
 	-- "vint",
-}
-
-settings["dap_deps"] = {
-	"debugpy",
-	"delve",
-	-- "lldb-vscode", -- not awailable in mason dap
 }
 
 return settings

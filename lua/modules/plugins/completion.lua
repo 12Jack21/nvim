@@ -5,43 +5,26 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("completion.lsp"),
 	dependencies = {
-		-- { "ray-x/lsp_signature.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		-- stubs for popular python library
-		{ "microsoft/python-type-stubs", cond = false },
 		{ "folke/neodev.nvim", opts = {} },
-
-		-- { "HallerPatrick/py_lsp.nvim" },
 	},
 }
--- completion["HallerPatrick/py_lsp.nvim"] = {
---     lazy=true
--- }
-completion["linux-cultist/venv-selector.nvim"] = {
-	lazy = true,
-	dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
-	config = true,
-	event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymappingk
-}
 
--- completion["jose-elias-alvarez/null-ls.nvim"] = {
 completion["nvimtools/none-ls.nvim"] = {
 	lazy = true,
-	-- pin = true, 
 	event = { "CursorHold", "CursorHoldI", "BufReadPre", "BufNewFile" },
 	config = require("modules.configs.completion.none-ls"),
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"williamboman/mason.nvim",
 		"jay-babu/mason-null-ls.nvim",
-        "nvimtools/none-ls-extras.nvim",
+		"nvimtools/none-ls-extras.nvim",
 	},
 }
 
 completion["hrsh7th/nvim-cmp"] = {
 	lazy = true,
-	-- enabled = false,
 	event = "InsertEnter",
 	config = require("completion.cmp"),
 	dependencies = {
@@ -60,30 +43,7 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "hrsh7th/cmp-buffer" },
 		{ "kdheepak/cmp-latex-symbols" },
 		{ "ray-x/cmp-treesitter" },
-        { "hrsh7th/cmp-nvim-lsp-signature-help" },  -- Show function signature when on insert mode within function
-		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
-		-- {
-		-- 	"jcdickinson/codeium.nvim",
-		-- 	dependencies = {
-		-- 		"nvim-lua/plenary.nvim",
-		-- 		"MunifTanjim/nui.nvim",
-		-- 	},
-		-- 	config = require("completion.codeium"),
-		-- },
-		-- { "rcarriga/cmp-dap" },
-	},
-}
-completion["zbirenbaum/copilot.lua"] = {
-	lazy = true,
-	enabled = false, -- my: tmp disable it
-	cmd = "Copilot",
-	event = "InsertEnter",
-	config = require("completion.copilot"),
-	dependencies = {
-		{
-			"zbirenbaum/copilot-cmp",
-			config = require("completion.copilot-cmp"),
-		},
+		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	},
 }
 

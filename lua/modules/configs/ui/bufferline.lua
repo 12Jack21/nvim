@@ -82,22 +82,26 @@ return function()
 	if vim.g.colors_name:find("catppuccin") then
 		local cp = require("modules.utils").get_palette() -- Get the palette.
 
-		local catppuccin_hl_overwrite = {
-			highlights = require("catppuccin.groups.integrations.bufferline").get({
-				styles = { "italic", "bold" },
-				custom = {
-					mocha = {
-						-- Hint
-						hint = { fg = cp.rosewater },
-						hint_visible = { fg = cp.rosewater },
-						hint_selected = { fg = cp.rosewater },
-						hint_diagnostic = { fg = cp.rosewater },
-						hint_diagnostic_visible = { fg = cp.rosewater },
-						hint_diagnostic_selected = { fg = cp.rosewater },
+		local catppuccin_hl_overwrite = {}
+		local ok, catppuccin_integration = pcall(require, "catppuccin.groups.integrations.bufferline")
+		if ok then
+			catppuccin_hl_overwrite = {
+				highlights = catppuccin_integration.get({
+					styles = { "italic", "bold" },
+					custom = {
+						mocha = {
+							-- Hint
+							hint = { fg = cp.rosewater },
+							hint_visible = { fg = cp.rosewater },
+							hint_selected = { fg = cp.rosewater },
+							hint_diagnostic = { fg = cp.rosewater },
+							hint_diagnostic_visible = { fg = cp.rosewater },
+							hint_diagnostic_selected = { fg = cp.rosewater },
+						},
 					},
-				},
-			}),
-		}
+				}),
+			}
+		end
 
 		opts = vim.tbl_deep_extend("force", opts, catppuccin_hl_overwrite)
 	end

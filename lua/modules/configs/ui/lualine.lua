@@ -48,10 +48,6 @@ return function()
 		lualine_y = {},
 		lualine_z = {},
 	}
-	local diffview = {
-		sections = mini_sections,
-		filetypes = { "DiffviewFiles" },
-	}
 
 	local function python_venv()
 		local function env_cleanup(venv)
@@ -78,8 +74,6 @@ return function()
 		return ""
 	end
 
-	local overseer = require("overseer")
-
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
@@ -93,23 +87,6 @@ return function()
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
 			lualine_x = {
-				-- task manager
-				{
-					"overseer", -- task manager
-					label = "", -- Prefix for task counts
-					colored = true, -- Color the task icons and counts
-					symbols = {
-						[overseer.STATUS.FAILURE] = "F:",
-						[overseer.STATUS.CANCELED] = "C:",
-						[overseer.STATUS.SUCCESS] = "S:",
-						[overseer.STATUS.RUNNING] = "R:",
-					},
-					unique = false, -- Unique-ify non-running task count by name
-					name = nil, -- List of task names to search for
-					name_not = false, -- When true, invert the name search
-					status = nil, -- List of task statuses to display
-					status_not = false, -- When true, invert the status search
-				},
 				{ escape_status },
 				{
 					"diagnostics",
@@ -182,8 +159,6 @@ return function()
 			"quickfix",
 			"nvim-tree",
 			"toggleterm",
-			"fugitive",
-			diffview,
 		},
 	})
 
